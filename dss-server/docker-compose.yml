@@ -1,0 +1,48 @@
+version: "3.8"
+
+services:
+  dss-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dss-server
+    restart: always
+    environment:
+      - NODE_ENV=production
+    env_file:
+      - .env
+    expose:
+      - "5000"
+    networks:
+      - dss-network
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--quiet",
+          "--tries=1",
+          "--spider",
+          "http://localhost:5000/health",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  nginx:
+    image: nginx:alpine
+    container_name: dss-nginx
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.prod.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - dss-server
+    networks:
+      - dss-network
+
+networks:
+  dss-network:
+    driver: bridge
