@@ -26,7 +26,7 @@ export default function CheckoutComponent({
       formData.append("price_id", priceId);
       formData.append("quantity", quantity.toString());
 
-      const response = await fetch("/api/checkout_sessions", {
+      const response = await fetch("/stripe/checkout_sessions", {
         method: "POST",
         body: formData,
       });
