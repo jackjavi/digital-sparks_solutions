@@ -9,8 +9,8 @@ COPY package.json package-lock.json ./
 # Temporarily remove prepare script to avoid compilation during install
 RUN npm pkg delete scripts.prepare
 
-# Install ALL dependencies (including devDependencies for TypeScript compilation)
-RUN npm ci --include=dev
+# Install dependencies
+RUN npm install
 
 # Copy source code
 COPY . .
