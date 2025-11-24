@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL || "https://top-bunny-surely.ngrok-free.app";
+  process.env.NEXT_PUBLIC_API_URL || "https://digitalsparkssolutions.com";
 
 interface PaymentConfirmationData {
   userEmail: string;
