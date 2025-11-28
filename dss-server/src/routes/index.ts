@@ -4,6 +4,7 @@ import cors from "cors";
 import { Application } from "express";
 import paymentRoutes from "./paymentRoutes";
 import contactRoutes from "./contactRoutes";
+import whopRoutes from "./whop/whopRoutes";
 
 const appRoutes = (app: Application) => {
   // Middleware
@@ -14,6 +15,7 @@ const appRoutes = (app: Application) => {
   // APP Routes
   app.use("/api/payment", paymentRoutes);
   app.use("/api/contact", contactRoutes);
+  app.use("/api/whop", whopRoutes);
 
   // Error Handling Middleware
   app.use(errorMiddleware);
