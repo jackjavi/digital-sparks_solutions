@@ -5,7 +5,7 @@ import { CheckCircle, Mail, Home, ArrowRight, Calendar } from "lucide-react";
 import { paymentAPI } from "../api/payment";
 import { EbookDownload } from "./_components/EbookDownload";
 import CalendlyEmbed from "./_components/CalendlyEmbed";
-import { servicesData } from "../../lib/service-data";
+import { servicesData } from "../../lib/service-data-stripe";
 
 export default async function Success({
   searchParams,
