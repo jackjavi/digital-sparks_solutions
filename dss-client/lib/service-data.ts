@@ -53,7 +53,7 @@ export const servicesData: ServiceData[] = [
           "Step-by-step guidance to successfully register your care agency with the CQC and meet all compliance standards.",
         price: 100,
         currency: "USD",
-        planId: "plan_G9SKfrwE0PAlP",
+        planId: "plan_4aGqSh4myUGhG",
         downloadLink:
           "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/The_Complete_Guide_to_CQC_Registration_obxmp4.odt",
         featured: true,
@@ -65,7 +65,7 @@ export const servicesData: ServiceData[] = [
           "Master the strategies real care agency owners use to attract clients, secure contracts, and grow sustainably.",
         price: 150,
         currency: "USD",
-        planId: "plan_G9SKfrwE0PAlP",
+        planId: "plan_kH4v9HW49yZjr",
         downloadLink:
           "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/Win_Clients_Land_Contracts_-The_Human_Blueprint_for_Your_UK_Care_Agency_byrosw.odt",
         featured: true,
