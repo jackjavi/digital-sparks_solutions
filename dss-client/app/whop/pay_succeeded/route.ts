@@ -4,25 +4,13 @@ import { whopsdk } from "../../../lib/whop-sdk";
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_URL || "https://digitalsparkssolutions.com";
 
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest): Promise<Response> {
   try {
     // Validate the webhook to ensure it's from Whop
     const requestBodyText = await request.text();
     const headers = Object.fromEntries(request.headers);
 
-    let webhookData;
-
-    // For development: allow bypassing signature validation
-    const isDevelopment = process.env.NODE_ENV === "development";
-    const bypassValidation = process.env.BYPASS_WEBHOOK_VALIDATION === "true";
-
-    if (isDevelopment && bypassValidation) {
-      console.log("[WHOP WEBHOOK] DEV MODE: Bypassing signature validation");
-      webhookData = JSON.parse(requestBodyText);
-    } else {
-      // Validate webhook signature in production
-      webhookData = whopsdk.webhooks.unwrap(requestBodyText, { headers });
-    }
+    const webhookData = whopsdk.webhooks.unwrap(requestBodyText, { headers });
 
     console.log("[WHOP WEBHOOK] Received:", {
       id: webhookData.id,
