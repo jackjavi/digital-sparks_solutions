@@ -10,11 +10,6 @@ const router = Router();
 router.post("/payment-succeeded", WhopController.handlePaymentSucceeded);
 
 /**
- * GET /api/whop/health
- * Health check endpoint
- */
-
-/**
  * POST /api/whop/payment/retrieve
  * Retrieve payment details from Whop API using receiptId
  */

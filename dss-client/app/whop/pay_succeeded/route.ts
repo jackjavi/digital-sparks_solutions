@@ -4,7 +4,7 @@ import { whopsdk } from "../../../lib/whop-sdk";
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_URL || "https://digitalsparkssolutions.com";
 
-export async function POST(request: NextRequest): Promise<Response> {
+export async function POST(request: NextRequest) {
   try {
     // Validate the webhook to ensure it's from Whop
     const requestBodyText = await request.text();
@@ -52,17 +52,7 @@ export async function POST(request: NextRequest): Promise<Response> {
             result: backendResult,
           });
           // Still return 200 to Whop to prevent retries
-          return new Response(
-            JSON.stringify({
-              success: true,
-              status: 200,
-              body: "OK",
-            }),
-            {
-              status: 200,
-              headers: { "Content-Type": "application/json" },
-            }
-          );
+          return new Response("OK", { status: 200 });
         }
 
         console.log("[WHOP WEBHOOK] Backend processed successfully:", {
@@ -79,30 +69,10 @@ export async function POST(request: NextRequest): Promise<Response> {
     }
 
     // Always return 200 OK quickly to Whop
-    return new Response(
-      JSON.stringify({
-        success: true,
-        status: 200,
-        body: "OK",
-      }),
-      {
-        status: 200,
-        headers: { "Content-Type": "application/json" },
-      }
-    );
+    return new Response("OK", { status: 200 });
   } catch (error) {
     console.error("[WHOP WEBHOOK] Error:", error);
     // Still return 200 to prevent retries for invalid webhooks
-    return new Response(
-      JSON.stringify({
-        success: true,
-        status: 200,
-        body: "OK",
-      }),
-      {
-        status: 200,
-        headers: { "Content-Type": "application/json" },
-      }
-    );
+    return new Response("OK", { status: 200 });
   }
 }
