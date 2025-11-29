@@ -1,6 +1,7 @@
 import WhopPayment from "../../models/whop/WhopPayment";
 import { CustomError } from "../../utils/customError";
 import sendEmail from "../../utils/sendEmail";
+import whopClient from "../../utils/whop/whopClient";
 import config from "../../config";
 
 interface WhopWebhookPayload {
@@ -65,6 +66,59 @@ interface WhopWebhookPayload {
 }
 
 export default class WhopService {
+  /**
+   * Retrieve payment details from Whop API
+   */
+  static async retrievePayment(receiptId: string) {
+    try {
+      console.log("[WHOP SERVICE] Retrieving payment:", receiptId);
+
+      // Call Whop API to retrieve payment
+      const payment = await whopClient.payments.retrieve(receiptId);
+
+      console.log("[WHOP SERVICE] Payment retrieved successfully:", {
+        paymentId: payment.id,
+        userEmail: payment.user?.email,
+        total: payment.total,
+        status: payment.substatus,
+      });
+
+      // Save payment to database if not already exists
+      /** const existingPayment = await WhopPayment.findOne({
+        paymentId: payment.id,
+      });
+
+      if (!existingPayment) {
+        await this.savePaymentToDatabase(payment, {
+          source: "retrieve",
+          receiptId,
+        });
+      } */
+
+      return {
+        success: true,
+        data: payment,
+      };
+    } catch (error: any) {
+      console.error("[WHOP SERVICE] Failed to retrieve payment:", error);
+
+      // Handle Whop API errors
+      if (error.error) {
+        throw new CustomError(
+          error.error.message || "Failed to retrieve payment from Whop",
+          400
+        );
+      }
+
+      throw new CustomError(
+        `Failed to retrieve payment: ${
+          error instanceof Error ? error.message : "Unknown error"
+        }`,
+        500
+      );
+    }
+  }
+
   /**
    * Process Whop payment.succeeded webhook
    */

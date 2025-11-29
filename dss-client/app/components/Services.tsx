@@ -14,6 +14,7 @@ import {
   ArrowRight,
   Check,
   GraduationCap,
+  Calendar,
 } from "lucide-react";
 import { servicesData } from "../../lib/service-data";
 
@@ -21,11 +22,12 @@ interface Service {
   title: string;
   description: string;
   icon: React.ElementType;
-  features: string[];
+  productCount: number;
   color: string;
   gradient: string;
   slug: string;
   gridImageUrl: string;
+  priceRange: string;
 }
 
 const iconMap = {
@@ -37,10 +39,13 @@ const iconMap = {
   Plane,
   Users,
   GraduationCap,
+  Calendar,
 };
 
 // Grid-specific images
 const gridImages: { [key: string]: string } = {
+  "healthcare-consultancy":
+    "https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=800&q=80",
   "study-in-uk-education-guidance":
     "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&q=80",
   "cv-tailoring-uk-jobs":
@@ -51,12 +56,6 @@ const gridImages: { [key: string]: string } = {
     "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
   "cleaning-business-coaching":
     "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=800&q=80",
-  "healthcare-consultancy":
-    "https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=800&q=80",
-  "immigration-self-sponsorship-guidance":
-    "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80",
-  "support-for-african-entrepreneurs":
-    "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80",
   "book-a-consultation":
     "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&q=80",
 };
@@ -66,16 +65,25 @@ const Services: React.FC = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   // Map services data to include icon components and grid images
-  const services: Service[] = servicesData.map((service) => ({
-    title: service.title,
-    description: service.shortDescription,
-    icon: iconMap[service.icon as keyof typeof iconMap],
-    features: service.features,
-    color: service.color,
-    gradient: service.gradient,
-    slug: service.slug,
-    gridImageUrl: gridImages[service.slug] || service.imageUrl,
-  }));
+  const services: Service[] = servicesData.map((service) => {
+    const prices = service.products.map((p) => p.price);
+    const minPrice = Math.min(...prices);
+    const maxPrice = Math.max(...prices);
+    const priceRange =
+      minPrice === maxPrice ? `$${minPrice}` : `$${minPrice} - $${maxPrice}`;
+
+    return {
+      title: service.title,
+      description: service.shortDescription,
+      icon: iconMap[service.icon as keyof typeof iconMap],
+      productCount: service.products.length,
+      color: service.color,
+      gradient: service.gradient,
+      slug: service.slug,
+      gridImageUrl: gridImages[service.slug] || service.imageUrl,
+      priceRange,
+    };
+  });
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -154,8 +162,8 @@ const Services: React.FC = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto mb-6 rounded-full" />
           <p className="text-xl text-slate-600 dark:text-gray-400 max-w-3xl mx-auto font-nunito leading-relaxed">
-            Comprehensive solutions to empower your UK business and career
-            journey from start-up to success
+            Comprehensive digital guides and expert resources to empower your UK
+            business and career journey
           </p>
         </div>
 
@@ -203,6 +211,16 @@ const Services: React.FC = () => {
                       <Icon className="h-6 w-6 text-white" />
                     </div>
                   </div>
+
+                  {/* Product count badge */}
+                  <div className="absolute top-4 right-4 z-10">
+                    <div className="px-3 py-1 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-full border border-slate-200 dark:border-slate-700">
+                      <span className="text-xs font-semibold text-slate-700 dark:text-slate-300 font-nunito">
+                        {service.productCount}{" "}
+                        {service.productCount === 1 ? "Guide" : "Guides"}
+                      </span>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Shine effect on hover */}
@@ -222,24 +240,17 @@ const Services: React.FC = () => {
                     {service.description}
                   </p>
 
-                  {/* Features */}
-                  <ul className="space-y-2 mb-6">
-                    {service.features.slice(0, 3).map((feature, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-center text-slate-700 dark:text-gray-300 text-sm font-nunito group/item"
-                      >
-                        <span
-                          className={`shrink-0 w-5 h-5 rounded-full bg-gradient-to-br ${service.color} mr-2 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
-                        >
-                          <Check className="h-3 w-3 text-white" />
-                        </span>
-                        <span className="group-hover/item:translate-x-1 transition-transform duration-300 line-clamp-1">
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
+                  {/* Price Range */}
+                  <div className="mb-6 flex items-center gap-2">
+                    <span className="text-sm text-slate-500 dark:text-slate-400 font-nunito">
+                      Starting from
+                    </span>
+                    <span
+                      className={`text-lg font-bold bg-gradient-to-r ${service.color} bg-clip-text text-transparent font-nunito`}
+                    >
+                      {service.priceRange}
+                    </span>
+                  </div>
 
                   {/* CTA Button */}
                   <Link href={`/services/${service.slug}`}>
@@ -247,7 +258,7 @@ const Services: React.FC = () => {
                       className={`w-full py-3 px-6 bg-gradient-to-r ${service.color} text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 group-hover:scale-105 font-nunito flex items-center justify-center gap-2 relative overflow-hidden`}
                     >
                       <span className="relative z-10 flex items-center gap-2">
-                        Learn More
+                        Explore Guides
                         <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                       </span>
                       <span
@@ -271,32 +282,23 @@ const Services: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-blue-500/5 to-cyan-500/5 blur-3xl" />
           <div className="relative bg-white/80 dark:bg-slate-800/30 backdrop-blur-sm border border-slate-200 dark:border-slate-700/50 rounded-2xl p-8 md:p-12 shadow-lg">
             <h3 className="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white mb-4 font-lilita-one">
-              Need Something Custom?
+              Need Personalized Guidance?
             </h3>
             <p className="text-slate-600 dark:text-gray-400 mb-8 text-lg font-nunito max-w-2xl mx-auto">
-              Can't find what you're looking for? We offer bespoke solutions
-              tailored specifically to your unique business needs.
+              Book a one-on-one consultation to get expert advice tailored
+              specifically to your unique situation and goals.
             </p>
             <a
               href="#contact"
               onClick={handleScroll}
               className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg font-semibold hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 hover:scale-105 font-nunito group"
             >
-              Get Custom Quote
+              Get in Touch
               <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
             </a>
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        .delay-1000 {
-          animation-delay: 1s;
-        }
-        .delay-2000 {
-          animation-delay: 2s;
-        }
-      `}</style>
     </section>
   );
 };

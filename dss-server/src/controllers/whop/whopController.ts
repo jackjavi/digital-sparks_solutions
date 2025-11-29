@@ -57,6 +57,45 @@ export default class WhopController {
   }
 
   /**
+   * Retrieve payment details from Whop API
+   */
+  static async retrievePayment(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) {
+    try {
+      const { receiptId } = req.body;
+
+      console.log("[WHOP CONTROLLER] Payment retrieve requested:", {
+        receiptId,
+      });
+
+      // Validate receiptId
+      if (!receiptId || typeof receiptId !== "string") {
+        throw new CustomError("Invalid or missing receiptId", 400);
+      }
+
+      // Retrieve payment from Whop API
+      const result = await WhopService.retrievePayment(receiptId);
+
+      console.log("[WHOP CONTROLLER] Payment retrieved successfully:", {
+        paymentId: result.data.id,
+        userEmail: result.data.user?.email,
+      });
+
+      return res.status(200).json({
+        success: true,
+        message: "Payment retrieved successfully",
+        data: result.data,
+      });
+    } catch (error) {
+      console.error("[WHOP CONTROLLER] Payment retrieval failed:", error);
+      next(error);
+    }
+  }
+
+  /**
    * Health check endpoint
    */
   static async healthCheck(req: Request, res: Response, next: NextFunction) {

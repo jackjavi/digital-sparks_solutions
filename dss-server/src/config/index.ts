@@ -13,6 +13,7 @@ const requiredEnvVars = [
   "PORT",
   "DSS_ADMIN_EMAIL",
   "MONGO_URI",
+  "WHOP_API_KEY",
 ];
 
 requiredEnvVars.forEach((key) => {
@@ -33,6 +34,7 @@ interface Config {
   port: number;
   dssAdminEmail: string;
   mongoUri: string;
+  whopApiKey: string;
 }
 
 const config: Config = {
@@ -47,6 +49,7 @@ const config: Config = {
   port: parseInt(process.env.PORT as string, 10),
   dssAdminEmail: process.env.DSS_ADMIN_EMAIL as string,
   mongoUri: process.env.MONGO_URI as string,
+  whopApiKey: process.env.WHOP_API_KEY as string,
 };
 
 export default config;

@@ -1,18 +1,28 @@
 import { LucideIcon } from "lucide-react";
 
+export interface Product {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  currency: string;
+  planId: string;
+  downloadLink?: string;
+  featured?: boolean;
+}
+
 export interface ServiceData {
   slug: string;
   title: string;
   description: string;
   shortDescription: string;
-  icon: string; // Store icon name as string for serialization
-  downloadLink: string;
+  icon: string;
+  products: Product[];
   features: string[];
   color: string;
   gradient: string;
-  price_id: string;
-  quantity: number;
   imageUrl: string;
+  gridImageUrl?: string;
   detailedContent: {
     overview: string;
     benefits: string[];
@@ -28,180 +38,372 @@ export interface ServiceData {
 
 export const servicesData: ServiceData[] = [
   {
-    slug: "study-in-uk-education-guidance",
-    title: "Study in the UK – Education Guidance",
+    slug: "healthcare-consultancy",
+    title: "Healthcare Consultancy",
     shortDescription:
-      "Achieve your academic dreams in the UK with personalized university selection, application support, and scholarship guidance.",
+      "Expert guidance for launching and scaling your UK care agency with comprehensive CQC registration support and proven growth strategies.",
     description:
-      "Make your UK study dreams a reality with expert guidance through every step of your educational journey. From selecting the perfect university to securing funding and completing applications, we provide comprehensive support to ensure your success.",
-    icon: "GraduationCap",
-    downloadLink:
-      "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/The_Human_Guide_to_Moving_to_the_UK_as_an_International_Student_lsrpv0.odt",
-    features: [
-      "University Selection",
-      "Application Support",
-      "Scholarship Guidance",
-      "Visa Assistance",
+      "Navigate the UK healthcare sector with confidence. From CQC registration to winning contracts and building a thriving care agency, our specialized consultancy provides the expertise you need to succeed in the competitive care industry.",
+    icon: "HeartPulse",
+    products: [
+      {
+        id: "cqc-registration-guide",
+        name: "Complete Guide to CQC Registration",
+        description:
+          "Step-by-step guidance to successfully register your care agency with the CQC and meet all compliance standards.",
+        price: 100,
+        currency: "USD",
+        planId: "plan_G9SKfrwE0PAlP",
+        downloadLink:
+          "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/The_Complete_Guide_to_CQC_Registration_obxmp4.odt",
+        featured: true,
+      },
+      {
+        id: "win-clients-contracts",
+        name: "Win Clients & Land Contracts – The Human Blueprint for Your UK Agency",
+        description:
+          "Master the strategies real care agency owners use to attract clients, secure contracts, and grow sustainably.",
+        price: 150,
+        currency: "USD",
+        planId: "plan_G9SKfrwE0PAlP",
+        downloadLink:
+          "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/Win_Clients_Land_Contracts_-The_Human_Blueprint_for_Your_UK_Care_Agency_byrosw.odt",
+        featured: true,
+      },
+      {
+        id: "start-care-agency",
+        name: "Start Your Care Agency in the UK",
+        description:
+          "Everything you need to launch your registered care agency — from setup to first clients.",
+        price: 60,
+        currency: "USD",
+        planId: "plan_G9SKfrwE0PAlP",
+        downloadLink:
+          "https://res.cloudinary.com/popit/raw/upload/v1762831152/DSS-EBOOKS/Start_Your_Care_Agency_in_the_UK_hkilur.odt",
+      },
+      {
+        id: "non-cqc-care-agency",
+        name: "Start Your Non-CQC Care Agency in the UK (Step-by-Step Guide)",
+        description:
+          "Launch a successful non-CQC care service with this easy, practical guide tailored for beginners.",
+        price: 50,
+        currency: "USD",
+        planId: "plan_G9SKfrwE0PAlP",
+      },
+      {
+        id: "healthcare-consultation",
+        name: "One-to-One Healthcare Consultation",
+        description:
+          "Book a personalized consultation to discuss your care business goals, registration challenges, or strategy needs.",
+        price: 70,
+        currency: "USD",
+        planId: "plan_G9SKfrwE0PAlP",
+      },
     ],
-    color: "from-violet-500 to-purple-600",
-    gradient: "bg-linear-to-br from-violet-500/10 to-purple-600/10",
-    price_id: "price_1SQvilBcFFRNjrpbGw8DfMbk",
-    quantity: 1,
+    features: [
+      "CQC Registration Support",
+      "Contract Winning Strategies",
+      "Compliance Guidance",
+      "Growth & Scaling Advice",
+    ],
+    color: "from-red-500 to-rose-600",
+    gradient: "bg-linear-to-br from-red-500/10 to-rose-600/10",
     imageUrl:
-      "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80",
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
+    gridImageUrl:
+      "https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=800&q=80",
     detailedContent: {
       overview:
-        "Studying in the UK opens doors to world-class education, global career opportunities, and life-changing experiences. However, navigating the complex application process, understanding entry requirements, and securing funding can be overwhelming. Our Study in the UK - Education Guidance service provides personalized support to help you make informed decisions and successfully secure your place at your dream UK university.",
+        "The UK healthcare sector offers incredible opportunities for qualified professionals and entrepreneurs, but navigating registration requirements, compliance regulations, and care agency setup can be overwhelming. Our Healthcare Consultancy provides expert guidance to help you successfully establish and grow your care business in the UK. Whether you're starting from scratch or scaling an existing agency, we offer comprehensive resources and personalized support to ensure your success in this rewarding industry.",
       benefits: [
-        "Expert guidance on selecting the right university and course for your career goals",
-        "Increased chances of acceptance with professionally crafted applications",
-        "Access to scholarship and funding opportunities you might not find alone",
-        "Save time and reduce stress with streamlined application processes",
-        "Avoid costly mistakes in university selection and applications",
-        "Student visa guidance to ensure smooth entry into the UK",
-        "Ongoing support from application through to arrival in the UK",
+        "Fast-track your care agency setup with proven strategies",
+        "Avoid costly mistakes and regulatory pitfalls with expert guidance",
+        "Master CQC registration and compliance requirements confidently",
+        "Learn winning strategies to attract clients and secure contracts",
+        "Access industry-tested blueprints from successful agency owners",
+        "Build a sustainable, profitable care business that makes a difference",
+        "Receive personalized consultation for your unique challenges",
+        "Stay compliant with ever-changing healthcare regulations",
       ],
       whatYouGet: [
-        "Personalized university and course selection consultation",
-        "Academic profile assessment and course suitability analysis",
-        "Entry requirements breakdown for your chosen programs",
-        "Personal statement writing guidance and review (3 revisions)",
-        "Application form completion support for up to 5 universities",
-        "Scholarship search and application assistance",
-        "Reference letter guidance and templates",
-        "Student visa application guidance and document checklist",
-        "Interview preparation (for courses that require it)",
-        "Accommodation search guidance and tips",
-        "Pre-departure orientation covering UK student life",
-        "Six one-on-one consultations (60 minutes each)",
-        "Email support throughout your application journey",
+        "Comprehensive guides covering every aspect of care agency setup",
+        "Step-by-step CQC registration walkthrough with compliance checklists",
+        "Proven client acquisition and contract-winning strategies",
+        "Business planning templates specifically for care agencies",
+        "Marketing and positioning guidance for the care sector",
+        "Financial planning tools and pricing strategies",
+        "Staff recruitment and training frameworks",
+        "Quality assurance and inspection preparation materials",
+        "One-to-one consultation sessions with care industry experts",
+        "Ongoing email support for your questions and challenges",
+        "Access to care agency owner community and networking opportunities",
+        "Regular updates on regulatory changes and industry best practices",
       ],
       whoIsThisFor: [
-        "International students planning to study in the UK",
-        "High school graduates seeking undergraduate programs",
-        "Professionals pursuing postgraduate degrees (Masters, PhD)",
-        "Students looking to transfer to UK universities",
-        "Parents wanting expert guidance for their children's education",
-        "Anyone confused by UK university application requirements",
+        "Aspiring care agency owners ready to enter the healthcare sector",
+        "Healthcare professionals transitioning to business ownership",
+        "Existing care agencies seeking growth and expansion strategies",
+        "International entrepreneurs establishing UK care businesses",
+        "Anyone passionate about making a difference in elderly and disability care",
+        "Business owners navigating CQC registration for the first time",
+        "Care providers wanting to win more contracts and clients",
       ],
       process: [
         {
           step: 1,
-          title: "Goal Setting & Assessment",
+          title: "Initial Assessment & Planning",
           description:
-            "We discuss your academic background, career aspirations, budget, and preferences to understand your unique needs and goals for studying in the UK.",
+            "We assess your goals, experience level, and specific needs to recommend the perfect resources and create a customized roadmap for your care agency journey.",
         },
         {
           step: 2,
-          title: "University & Course Selection",
+          title: "Foundation Building",
           description:
-            "Receive a personalized shortlist of universities and courses that match your profile, career goals, and budget, with detailed information about each option.",
+            "Access comprehensive guides to establish your business structure, understand legal requirements, and prepare for CQC registration with complete documentation support.",
         },
         {
           step: 3,
-          title: "Application Preparation",
+          title: "Registration & Compliance",
           description:
-            "Craft compelling personal statements, gather required documents, and prepare strong applications that showcase your potential and stand out to admissions officers.",
+            "Navigate the CQC registration process confidently with step-by-step guidance, compliance checklists, and expert support to ensure successful approval.",
         },
         {
           step: 4,
-          title: "Funding & Scholarship Applications",
+          title: "Client Acquisition & Growth",
           description:
-            "Identify scholarship opportunities and funding options, then prepare competitive applications to maximize your chances of financial support.",
+            "Implement proven strategies to attract clients, win contracts with local authorities and private clients, and establish your reputation in the care sector.",
         },
         {
           step: 5,
-          title: "Submission & Visa Support",
+          title: "Ongoing Support & Scaling",
           description:
-            "Submit your applications with confidence, track responses, and receive guidance on accepting offers and completing your student visa application for a smooth transition to UK student life.",
+            "Receive continued guidance as you grow your agency, with strategies for team building, operational excellence, and sustainable expansion in the care industry.",
         },
       ],
     },
   },
-
   {
-    slug: "cv-tailoring-uk-jobs",
-    title: "CV Tailoring for UK Jobs",
+    slug: "study-in-uk-education-guidance",
+    title: "Study in the UK – Education Guidance",
     shortDescription:
-      "Stand out in the UK job market with professionally tailored CVs that highlight your skills and experience effectively.",
+      "Your complete guide to studying in the UK as an international student, from university selection to settling in and thriving.",
     description:
-      "Navigate the competitive UK job market with confidence. Our expert CV tailoring service ensures your application passes ATS systems and impresses hiring managers.",
-    icon: "FileText",
-    downloadLink:
-      "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/How_to_Find_UK_Companies_That_Can_Sponsor_Skilled_Workers_dzhzsb.odt",
-    features: [
-      "UK-Specific Formatting",
-      "ATS Optimization",
-      "Professional Review",
-      "Cover Letter Writing",
+      "Make your UK study dreams a reality with expert guidance through every step of your educational journey. From selecting the perfect university to navigating visa processes and settling into UK student life, we provide comprehensive support to ensure your success.",
+    icon: "GraduationCap",
+    products: [
+      {
+        id: "international-student-guide",
+        name: "The Human Guide to Moving to the UK as an International Student",
+        description:
+          "Real, practical advice on studying, settling, and succeeding in the UK — written for real students by real people.",
+        price: 30,
+        currency: "USD",
+        planId: "plan_G9SKfrwE0PAlP",
+        downloadLink:
+          "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/The_Human_Guide_to_Moving_to_the_UK_as_an_International_Student_lsrpv0.odt",
+        featured: true,
+      },
     ],
-    color: "from-purple-500 to-pink-600",
-    gradient: "bg-linear-to-br from-purple-500/10 to-pink-600/10",
-    price_id: "price_1SQe9XBcFFRNjrpbNeV4rJSV",
-    quantity: 1,
+    features: [
+      "University Selection",
+      "Application Support",
+      "Visa Guidance",
+      "Student Life Preparation",
+    ],
+    color: "from-violet-500 to-purple-600",
+    gradient: "bg-linear-to-br from-violet-500/10 to-purple-600/10",
     imageUrl:
-      "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80",
+      "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80",
+    gridImageUrl:
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&q=80",
     detailedContent: {
       overview:
-        "Landing your dream job in the UK requires more than just experience—it requires a CV that speaks the language of UK recruiters and passes through Applicant Tracking Systems (ATS). Our specialized CV tailoring service combines UK market expertise with proven strategies to position you as the ideal candidate.",
+        "Studying in the UK opens doors to world-class education, global career opportunities, and life-changing experiences. However, the journey from application to settling in can feel overwhelming without proper guidance. Our Study in the UK Education Guidance provides practical, real-world advice from those who've walked the path before you. This isn't generic information—it's honest, human insights into what it really takes to thrive as an international student in the UK.",
       benefits: [
-        "Increased interview callbacks by up to 300%",
-        "ATS-optimized formatting ensures your CV gets seen",
-        "UK-compliant structure and terminology",
-        "Professional presentation that showcases your unique value",
-        "Targeted content that matches job requirements",
-        "Expert guidance on what UK employers look for",
-        "Stand out from hundreds of other applicants",
+        "Navigate the UK student visa process with confidence and clarity",
+        "Make informed decisions about university and course selection",
+        "Avoid common pitfalls that international students face",
+        "Learn practical budgeting and money management for UK student life",
+        "Understand UK academic culture and expectations from day one",
+        "Access insider tips on accommodation, transportation, and daily living",
+        "Build a support network and integrate into UK student communities",
+        "Set yourself up for academic success and career opportunities",
       ],
       whatYouGet: [
-        "Comprehensive CV review and rewrite in UK format",
-        "ATS optimization to pass automated screening systems",
-        "Customized cover letter template",
-        "LinkedIn profile optimization guide",
-        "Industry-specific keyword integration",
-        "Achievement-focused content highlighting measurable results",
-        "Two rounds of revisions to perfect your CV",
-        "One-on-one consultation (30 minutes) to discuss your career goals",
-        "Lifetime access to CV templates and formatting guides",
+        "Comprehensive guide covering the entire international student journey",
+        "University selection framework aligned with your goals and budget",
+        "Application and admission process demystified with practical examples",
+        "Student visa application guidance with document checklists",
+        "Pre-departure preparation checklist and packing essentials",
+        "Accommodation search strategies and what to expect",
+        "Budgeting templates and cost-of-living breakdowns for major UK cities",
+        "Cultural adaptation guide to UK academic and social norms",
+        "Part-time work opportunities and regulations for international students",
+        "Healthcare, banking, and essential services setup guide",
+        "Academic success strategies including study techniques and support resources",
+        "Post-graduation pathways including Graduate visa options",
       ],
       whoIsThisFor: [
-        "International professionals relocating to the UK",
-        "UK residents seeking career advancement",
-        "Recent graduates entering the UK job market",
-        "Career changers pivoting to new industries",
-        "Professionals returning to work after a career break",
-        "Anyone struggling to get interview callbacks",
+        "International students planning to study in the UK for the first time",
+        "High school graduates seeking undergraduate programs abroad",
+        "Professionals pursuing postgraduate degrees in the UK",
+        "Parents supporting their children's UK education journey",
+        "Anyone feeling overwhelmed by the UK student visa and application process",
+        "Students wanting insider knowledge beyond official university websites",
       ],
       process: [
         {
           step: 1,
-          title: "Initial Consultation",
+          title: "Dream & Discover",
           description:
-            "We discuss your career goals, target roles, and review your current CV to identify areas for improvement and develop a tailored strategy.",
+            "Access our comprehensive guide to understand what studying in the UK entails, explore university options, and clarify your academic and career goals.",
         },
         {
           step: 2,
-          title: "Information Gathering",
+          title: "Apply & Prepare",
           description:
-            "You'll complete a detailed questionnaire about your experience, achievements, and career objectives. We may follow up with clarifying questions.",
+            "Follow our proven application strategies, prepare strong submissions, and navigate the student visa process with detailed, step-by-step guidance.",
         },
         {
           step: 3,
-          title: "CV Transformation",
+          title: "Arrive & Settle",
           description:
-            "Our expert writers craft a compelling, UK-formatted CV that highlights your strengths and is optimized for both ATS systems and human recruiters.",
+            "Use our pre-departure checklist and arrival guide to settle smoothly into UK life, from finding accommodation to opening bank accounts and registering with essential services.",
         },
         {
           step: 4,
-          title: "Review & Refinement",
+          title: "Thrive & Excel",
           description:
-            "You receive your first draft for review. We incorporate your feedback and make revisions to ensure you're completely satisfied.",
+            "Implement our academic success strategies, build meaningful connections, and make the most of your UK student experience while preparing for your future career.",
         },
         {
           step: 5,
-          title: "Final Delivery",
+          title: "Graduate & Progress",
           description:
-            "Receive your polished CV in multiple formats (Word, PDF), plus cover letter template and LinkedIn optimization guide. You're ready to apply with confidence!",
+            "Explore post-graduation pathways including the Graduate visa, job search strategies, and options for building your career in the UK or internationally.",
+        },
+      ],
+    },
+  },
+  {
+    slug: "cv-tailoring-uk-jobs",
+    title: "CV Tailoring for UK Jobs",
+    shortDescription:
+      "Stand out in the UK job market with professionally tailored CVs, visa sponsorship guidance, and insider access to UK employers.",
+    description:
+      "Navigate the competitive UK job market with confidence. Our expert CV tailoring service ensures your application passes ATS systems, impresses hiring managers, and opens doors to UK employers who can sponsor your visa.",
+    icon: "FileText",
+    products: [
+      {
+        id: "uk-sponsor-companies",
+        name: "How to Find UK Companies That Can Sponsor Skilled Workers",
+        description:
+          "Discover where and how to find legitimate UK sponsors to support your Skilled Worker visa application.",
+        price: 20,
+        currency: "USD",
+        planId: "plan_G9SKfrwE0PAlP",
+        downloadLink:
+          "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/How_to_Find_UK_Companies_That_Can_Sponsor_Skilled_Workers_dzhzsb.odt",
+        featured: true,
+      },
+      {
+        id: "cv-tailoring-service",
+        name: "Tailored CV Service to Meet UK Employers' Standards",
+        description:
+          "Get a professionally crafted CV that matches UK recruitment expectations and makes you stand out.",
+        price: 25,
+        currency: "USD",
+        planId: "plan_G9SKfrwE0PAlP",
+        featured: true,
+      },
+      {
+        id: "sponsor-workers-list",
+        name: "Worker & Temporary Workers List",
+        description:
+          "Access the UK Home Office Register of Sponsors (public data), compiled for your convenience.",
+        price: 1,
+        currency: "USD",
+        planId: "plan_G9SKfrwE0PAlP",
+      },
+    ],
+    features: [
+      "UK-Specific CV Formatting",
+      "ATS Optimization",
+      "Visa Sponsorship Guidance",
+      "Employer Database Access",
+    ],
+    color: "from-purple-500 to-pink-600",
+    gradient: "bg-linear-to-br from-purple-500/10 to-pink-600/10",
+    imageUrl:
+      "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80",
+    gridImageUrl:
+      "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
+    detailedContent: {
+      overview:
+        "Landing your dream job in the UK requires more than just experience—it requires a CV that speaks the language of UK recruiters, passes through Applicant Tracking Systems (ATS), and positions you as the ideal candidate. For international professionals, understanding which UK employers can sponsor your visa is equally crucial. Our CV Tailoring for UK Jobs service combines expert CV crafting with strategic visa sponsorship guidance to maximize your chances of securing UK employment.",
+      benefits: [
+        "Increased interview callbacks by presenting your experience effectively",
+        "ATS-optimized formatting ensures your CV gets seen by human recruiters",
+        "UK-compliant structure and terminology that resonates with employers",
+        "Strategic targeting of visa-sponsoring employers for international candidates",
+        "Access to verified UK sponsor database for efficient job searching",
+        "Professional presentation that showcases your unique value proposition",
+        "Confidence in your applications with expert-reviewed materials",
+        "Time savings by focusing on the right opportunities",
+      ],
+      whatYouGet: [
+        "Comprehensive guide to finding UK visa-sponsoring employers",
+        "Access to compiled UK Home Office Register of Sponsors",
+        "Professional CV tailoring service with UK market expertise",
+        "ATS optimization to pass automated screening systems",
+        "Achievement-focused content highlighting measurable results",
+        "Industry-specific keyword integration for your target roles",
+        "UK format conversion with proper structure and terminology",
+        "Cover letter template tailored to UK expectations",
+        "LinkedIn profile optimization recommendations",
+        "Job application strategy specifically for visa sponsorship",
+        "Email templates for approaching potential sponsors",
+        "Interview preparation tips for UK employers",
+      ],
+      whoIsThisFor: [
+        "International professionals seeking UK employment with visa sponsorship",
+        "Skilled workers eligible for UK Skilled Worker visa",
+        "Recent graduates looking to start their UK career",
+        "Career changers pivoting to new industries in the UK",
+        "Professionals struggling to get interview callbacks",
+        "Anyone needing to understand the UK sponsorship landscape",
+        "Job seekers wanting to maximize their application success rate",
+      ],
+      process: [
+        {
+          step: 1,
+          title: "Understand Your Market",
+          description:
+            "Access our comprehensive guide on finding UK visa-sponsoring employers, understanding the sponsorship landscape, and identifying target companies in your industry.",
+        },
+        {
+          step: 2,
+          title: "CV Transformation",
+          description:
+            "Receive professionally tailored CV services that transform your existing CV into a UK-format, ATS-optimized document that highlights your strengths and appeals to UK recruiters.",
+        },
+        {
+          step: 3,
+          title: "Strategic Application",
+          description:
+            "Use our sponsor database and application strategies to target the right employers efficiently, focusing your energy on opportunities with genuine sponsorship potential.",
+        },
+        {
+          step: 4,
+          title: "Stand Out & Succeed",
+          description:
+            "Apply with confidence using your optimized CV, tailored cover letters, and strategic approach to secure interviews with UK employers who value your skills.",
+        },
+        {
+          step: 5,
+          title: "Interview & Offer",
+          description:
+            "Prepare for UK interviews with our guidance, negotiate effectively, and navigate the sponsorship process from job offer to visa approval.",
         },
       ],
     },
@@ -210,83 +412,118 @@ export const servicesData: ServiceData[] = [
     slug: "social-media-management-website-development",
     title: "Social Media Management & Website Development",
     shortDescription:
-      "Build your online presence with expert social media strategies and stunning, functional websites tailored to your brand.",
+      "Transform your digital presence with expert social media strategies, stunning websites, and comprehensive coaching for online success.",
     description:
-      "Transform your digital presence with our comprehensive social media management and website development services. We create cohesive brand experiences that engage your audience and drive business growth.",
+      "Build a powerful online presence that drives real business results. From professional website design to strategic social media management and hands-on coaching, we create cohesive digital experiences that engage your audience and accelerate growth.",
     icon: "Globe",
-    downloadLink:
-      "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/Win_Clients_Land_Contracts_-The_Human_Blueprint_for_Your_UK_Care_Agency_byrosw.odt",
+    products: [
+      {
+        id: "social-media-management",
+        name: "Social Media Management",
+        description:
+          "Professional social media strategy, content creation, and community management to build your brand and engage your audience across platforms.",
+        price: 25,
+        currency: "USD",
+        planId: "plan_G9SKfrwE0PAlP",
+      },
+      {
+        id: "website-design-development",
+        name: "Website Design & Development",
+        description:
+          "Custom, responsive website design and development that showcases your brand beautifully and converts visitors into customers.",
+        price: 700,
+        currency: "USD",
+        planId: "plan_G9SKfrwE0PAlP",
+        featured: true,
+      },
+      {
+        id: "software-engineering-coaching",
+        name: "Software Engineering Coaching",
+        description:
+          "One-on-one coaching to level up your coding skills, master modern development practices, and advance your software engineering career.",
+        price: 100,
+        currency: "USD",
+        planId: "plan_G9SKfrwE0PAlP",
+      },
+    ],
     features: [
       "Social Media Strategy",
-      "Content Creation",
-      "Website Design & Development",
+      "Custom Website Design",
+      "Development Coaching",
       "Brand Consistency",
     ],
     color: "from-cyan-500 to-blue-600",
     gradient: "bg-linear-to-br from-cyan-500/10 to-blue-600/10",
-    price_id: "price_1SQbl5BcFFRNjrpb9IaNB8Kw",
-    quantity: 1,
     imageUrl:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+    gridImageUrl:
+      "https://images.unsplash.com/photo-1557838923-2985c318be48?w=800&q=80",
     detailedContent: {
       overview:
-        "In today's digital-first world, your online presence is your business card, storefront, and reputation all rolled into one. Our Social Media Management & Website Development service provides a holistic approach to building and maintaining a powerful digital brand that resonates with your target audience and drives measurable results.",
+        "In today's digital-first world, your online presence is your business card, storefront, and reputation all rolled into one. Our Social Media Management & Website Development service provides comprehensive solutions to establish, enhance, and optimize your digital footprint. Whether you need ongoing social media management, a stunning new website, or personalized coaching to develop your technical skills, we deliver results that matter. We combine strategic thinking with creative execution to build digital experiences that resonate with your audience and drive measurable business growth.",
       benefits: [
-        "Increased brand visibility and recognition across multiple platforms",
-        "Professional, conversion-optimized website that showcases your brand",
-        "Consistent brand messaging across all digital touchpoints",
-        "Data-driven social media strategies that engage and grow your audience",
-        "Responsive design that works flawlessly on all devices",
-        "SEO-optimized content that improves search rankings",
-        "Time savings by outsourcing your digital management to experts",
+        "Establish credibility with a professional, modern online presence",
+        "Reach and engage your target audience effectively on social platforms",
+        "Convert website visitors into customers with optimized design",
+        "Save time by outsourcing your digital management to experts",
+        "Build consistent brand messaging across all digital touchpoints",
+        "Stay ahead of competitors with cutting-edge digital strategies",
+        "Gain technical skills through personalized coaching sessions",
+        "Track measurable results with analytics and performance insights",
       ],
       whatYouGet: [
-        "Custom website design and development tailored to your brand",
-        "Social media account setup and optimization (up to 3 platforms)",
-        "Monthly content calendar with 20+ posts per platform",
-        "Professional graphics and visual content creation",
-        "Community management and engagement monitoring",
-        "Monthly analytics reports with actionable insights",
-        "Website hosting and maintenance for 12 months",
-        "Basic SEO optimization and Google My Business setup",
+        "Professional social media strategy and content planning",
+        "Custom graphics, videos, and engaging content creation",
+        "Daily posting, community management, and audience engagement",
+        "Responsive website design tailored to your brand identity",
+        "Modern, fast-loading development with SEO optimization",
+        "Mobile-first approach ensuring perfect experience on all devices",
+        "Content management system for easy updates",
+        "One-on-one software engineering coaching sessions",
+        "Code reviews and best practices guidance",
+        "Career development strategies for software engineers",
+        "Monthly analytics reports tracking growth and engagement",
+        "Ongoing support and optimization based on performance data",
       ],
       whoIsThisFor: [
-        "Small business owners looking to establish their digital presence",
-        "Entrepreneurs launching new ventures",
-        "Established businesses needing a digital transformation",
-        "Service providers wanting to attract more clients online",
-        "Retail businesses expanding into e-commerce",
+        "Small business owners establishing their digital presence",
+        "Entrepreneurs launching new ventures online",
+        "Established businesses needing digital transformation",
+        "Service providers wanting to attract clients through digital channels",
+        "Aspiring developers seeking mentorship and skill development",
+        "Professionals transitioning into software engineering careers",
+        "Anyone wanting to leverage digital platforms for business growth",
       ],
       process: [
         {
           step: 1,
           title: "Discovery & Strategy",
           description:
-            "We start with an in-depth consultation to understand your brand, goals, target audience, and competitive landscape. We'll develop a comprehensive digital strategy tailored to your business.",
+            "We start with an in-depth consultation to understand your brand, goals, target audience, and competitive landscape. Together, we develop a comprehensive digital strategy aligned with your business objectives.",
         },
         {
           step: 2,
           title: "Design & Development",
           description:
-            "Our team creates stunning website designs and begins development while simultaneously setting up and optimizing your social media profiles for maximum impact.",
+            "Our team creates stunning website designs and begins development while simultaneously setting up and optimizing your social media profiles. For coaching clients, we assess your current skills and create a personalized learning roadmap.",
         },
         {
           step: 3,
-          title: "Content Creation",
+          title: "Content Creation & Launch",
           description:
-            "We develop engaging content calendars, create professional graphics, and prepare compelling copy that speaks directly to your target audience.",
+            "We develop engaging content calendars, create professional graphics and copy, and prepare your digital assets. Your website undergoes rigorous testing before launch to ensure flawless performance.",
         },
         {
           step: 4,
-          title: "Launch & Optimization",
+          title: "Execution & Engagement",
           description:
-            "After rigorous testing, we launch your website and social media campaigns. We continuously monitor performance and optimize for better results.",
+            "Launch your website and social media campaigns with strategic execution. We manage daily posting, community engagement, and respond to your audience while you focus on running your business.",
         },
         {
           step: 5,
-          title: "Ongoing Management",
+          title: "Optimize & Grow",
           description:
-            "We provide ongoing management, updates, and improvements based on analytics and user feedback to ensure continued growth and success.",
+            "Continuously monitor performance, analyze data, and optimize strategies for better results. Regular reporting keeps you informed while we handle the ongoing management and improvements.",
         },
       ],
     },
@@ -295,86 +532,100 @@ export const servicesData: ServiceData[] = [
     slug: "business-startup-growth-support",
     title: "Business Start-Up & Growth Support",
     shortDescription:
-      "Launch and scale your business with comprehensive guidance, from business planning to growth strategies.",
+      "Launch and scale your UK business with expert guidance, from company registration to growth strategies and operational excellence.",
     description:
-      "Turn your business idea into reality with our comprehensive start-up and growth support program. From initial planning to scaling strategies, we guide you every step of the way.",
+      "Turn your business idea into reality with our comprehensive start-up and growth support program. From legal registration to strategic planning and scaling, we guide you through every step of building a successful UK business.",
     icon: "TrendingUp",
-    downloadLink:
-      "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/Win_Clients_Land_Contracts_-The_Human_Blueprint_for_Your_UK_Care_Agency_byrosw.odt",
+    products: [
+      {
+        id: "uk-business-registration",
+        name: "How to Register Your Business in the UK",
+        description:
+          "A beginner-friendly guide that walks you through the exact steps to legally register and launch your UK business.",
+        price: 7.5,
+        currency: "USD",
+        planId: "plan_G9SKfrwE0PAlP",
+        featured: true,
+      },
+    ],
     features: [
-      "Business Planning",
-      "Market Research",
-      "Financial Planning",
+      "Business Registration",
+      "Legal Compliance",
       "Growth Strategies",
+      "Operational Setup",
     ],
     color: "from-green-500 to-emerald-600",
     gradient: "bg-linear-to-br from-green-500/10 to-emerald-600/10",
-    price_id: "price_1SQeC8BcFFRNjrpb6smNUPBD",
-    quantity: 1,
     imageUrl:
       "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80",
+    gridImageUrl:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
     detailedContent: {
       overview:
-        "Starting and growing a business in the UK doesn't have to be overwhelming. Our Business Start-Up & Growth Support program provides you with the expertise, tools, and guidance needed to build a sustainable and profitable business. Whether you're at the idea stage or ready to scale, we're here to help you succeed.",
+        "Starting a business in the UK doesn't have to be overwhelming or confusing. Our Business Start-Up & Growth Support provides clear, actionable guidance to help you navigate the registration process, understand your legal obligations, and establish a solid foundation for your venture. Whether you're a first-time entrepreneur or an experienced business owner expanding into the UK market, we simplify the complex and give you the confidence to move forward with your business dreams.",
       benefits: [
-        "Avoid costly mistakes with expert guidance from day one",
-        "Accelerate your path to profitability with proven strategies",
-        "Access to UK-specific business resources and networks",
-        "Comprehensive business plan that attracts investors",
-        "Data-driven decision making with market research insights",
-        "Financial planning that ensures sustainable growth",
-        "Ongoing support as your business evolves",
+        "Avoid costly mistakes by following proven registration processes",
+        "Save time with step-by-step guidance that cuts through confusion",
+        "Understand legal requirements and compliance from day one",
+        "Choose the right business structure for your specific needs",
+        "Gain clarity on taxes, licenses, and regulatory obligations",
+        "Set up proper financial systems and record-keeping from the start",
+        "Access templates and resources to streamline your setup",
+        "Build a legitimate, compliant business foundation for growth",
       ],
       whatYouGet: [
-        "Complete business plan development (30-40 pages)",
-        "Market research and competitive analysis report",
-        "Financial projections and cash flow modeling (3-year forecast)",
-        "Legal structure and registration guidance",
-        "Brand identity development and positioning strategy",
-        "Marketing plan with customer acquisition strategies",
-        "Operational procedures and systems setup",
-        "Six monthly strategy sessions (90 minutes each)",
-        "Email and phone support for 12 months",
-        "Access to business templates, tools, and resources library",
+        "Complete business registration walkthrough for UK companies",
+        "Comparison of business structures (Sole Trader, Limited Company, Partnership)",
+        "Step-by-step Companies House registration guide",
+        "Tax registration guidance (HMRC, VAT, PAYE)",
+        "Legal compliance checklist for your industry",
+        "Business license and permit requirements breakdown",
+        "Business banking setup recommendations",
+        "Accounting and bookkeeping system setup guidance",
+        "Insurance requirements and provider recommendations",
+        "Brand protection advice including trademark basics",
+        "Essential business templates and documents",
+        "Post-registration checklist to ensure nothing is missed",
       ],
       whoIsThisFor: [
-        "Aspiring entrepreneurs with a business idea",
-        "New business owners in their first year of operation",
-        "Small businesses ready to scale and grow",
-        "International entrepreneurs establishing UK businesses",
-        "Side hustlers transitioning to full-time entrepreneurship",
-        "Business owners seeking structure and strategic direction",
+        "First-time entrepreneurs ready to start their UK business",
+        "Sole traders wanting to formalize their operations",
+        "International entrepreneurs establishing UK presence",
+        "Freelancers transitioning to legitimate business structures",
+        "Side hustlers ready to make their venture official",
+        "Anyone confused by UK business registration requirements",
+        "Entrepreneurs wanting to ensure legal compliance from day one",
       ],
       process: [
         {
           step: 1,
-          title: "Vision & Validation",
+          title: "Understand Your Options",
           description:
-            "We explore your business idea, validate market demand, and refine your unique value proposition through comprehensive market research.",
+            "Learn about different business structures available in the UK and determine which option best suits your business goals, liability concerns, and tax considerations.",
         },
         {
           step: 2,
-          title: "Business Planning",
+          title: "Prepare & Register",
           description:
-            "Develop a detailed business plan covering your business model, target market, marketing strategy, operations, and financial projections.",
+            "Follow our detailed guide to gather required information, complete registration with Companies House, and establish your legal business entity in the UK.",
         },
         {
           step: 3,
-          title: "Foundation Building",
+          title: "Tax & Compliance Setup",
           description:
-            "Establish your legal structure, register your business, set up financial systems, and create your brand identity.",
+            "Register with HMRC for appropriate taxes, understand your obligations, and set up systems to maintain compliance with UK business regulations.",
         },
         {
           step: 4,
-          title: "Launch Preparation",
+          title: "Operational Foundation",
           description:
-            "Finalize your product/service offering, develop your go-to-market strategy, and prepare all necessary operational systems.",
+            "Establish essential business operations including business banking, accounting systems, insurance coverage, and necessary licenses for your industry.",
         },
         {
           step: 5,
-          title: "Growth & Scaling",
+          title: "Launch & Grow",
           description:
-            "Implement growth strategies, optimize operations, and scale your business sustainably with ongoing strategic support and guidance.",
+            "With your business properly registered and compliant, focus on marketing, sales, and growth while maintaining the strong foundation you've built.",
         },
       ],
     },
@@ -383,370 +634,138 @@ export const servicesData: ServiceData[] = [
     slug: "cleaning-business-coaching",
     title: "Cleaning Business Coaching",
     shortDescription:
-      "Start and grow a profitable cleaning business with specialized coaching and industry-specific insights.",
+      "Launch and scale a profitable cleaning business in the UK with proven strategies, operational blueprints, and expert coaching.",
     description:
-      "Break into the lucrative cleaning industry with expert coaching tailored specifically for cleaning business owners. Learn the secrets to building a profitable, scalable cleaning company.",
+      "Break into the lucrative cleaning industry with specialized coaching tailored for cleaning business owners. From start-up essentials to scaling strategies, we provide the frameworks, systems, and support you need to build a thriving cleaning company in the competitive UK market.",
     icon: "Sparkles",
-    downloadLink:
-      "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/Scale_Your_Cleaning_Business_in_the_UK_-_A_Real_Human_Blueprint_t5bwfp.odt",
+    products: [
+      {
+        id: "scale-cleaning-business",
+        name: "Scale Your Cleaning Business in the UK – A Real Human Blueprint",
+        description:
+          "Learn how to expand your cleaning business, attract more clients, and build a reliable team using proven strategies.",
+        price: 60,
+        currency: "USD",
+        planId: "plan_G9SKfrwE0PAlP",
+        downloadLink:
+          "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/Scale_Your_Cleaning_Business_in_the_UK_-_A_Real_Human_Blueprint_t5bwfp.odt",
+        featured: true,
+      },
+      {
+        id: "start-cleaning-company",
+        name: "Start Your Successful Cleaning Company",
+        description:
+          "Get the full step-by-step guide to launching a profitable cleaning company in the UK — from setup to scaling.",
+        price: 50,
+        currency: "USD",
+        planId: "plan_G9SKfrwE0PAlP",
+        featured: true,
+      },
+    ],
     features: [
-      "Business Setup",
-      "Client Acquisition",
+      "Business Setup Guide",
+      "Client Acquisition Strategies",
       "Operations Management",
-      "Pricing Strategies",
+      "Scaling & Team Building",
     ],
     color: "from-yellow-500 to-orange-600",
     gradient: "bg-linear-to-br from-yellow-500/10 to-orange-600/10",
-    price_id: "price_1SQeExBcFFRNjrpblMLI3YtF",
-    quantity: 1,
     imageUrl:
       "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80",
+    gridImageUrl:
+      "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=800&q=80",
     detailedContent: {
       overview:
-        "The UK cleaning industry is worth billions and continues to grow year after year. Our specialized Cleaning Business Coaching program gives you insider knowledge and proven systems to build a profitable cleaning business from scratch or take your existing operation to the next level. No prior experience needed—just determination and drive.",
+        "The UK cleaning industry is worth billions and continues to grow year after year, offering incredible opportunities for entrepreneurs willing to put in the work. Our Cleaning Business Coaching program provides specialized guidance, proven systems, and actionable strategies to help you build a profitable cleaning business from the ground up—or take your existing operation to new heights. Whether you're starting with zero experience or looking to scale beyond your current capacity, we give you the blueprint that successful cleaning business owners use to thrive in this recession-proof industry.",
       benefits: [
-        "Tap into a recession-proof industry with consistent demand",
-        "Low start-up costs compared to other businesses",
-        "Flexible working hours and work-life balance",
-        "Scalable business model—grow at your own pace",
-        "Multiple revenue streams (residential, commercial, specialized)",
-        "Build a business that runs without you (systematized operations)",
-        "Generate passive income through team expansion",
+        "Enter a recession-proof industry with consistent, year-round demand",
+        "Start with relatively low investment compared to other businesses",
+        "Build a scalable business model that grows at your pace",
+        "Achieve flexible working hours and better work-life balance",
+        "Create multiple revenue streams across residential and commercial sectors",
+        "Develop systems that allow your business to run without you",
+        "Generate reliable income and potential for significant growth",
+        "Make a positive impact by providing essential services to your community",
       ],
       whatYouGet: [
-        "Complete cleaning business start-up blueprint",
-        "Pricing calculator and profitability modeling tools",
-        "Client acquisition system with proven marketing templates",
-        "Operations manual with checklists and SOPs",
-        "Staff recruitment and training programs",
-        "Equipment and supply sourcing guide with supplier list",
-        "Insurance and legal compliance checklist",
-        "Client contracts and service agreements templates",
-        "12 weekly group coaching calls (60 minutes each)",
-        "Private community access with other cleaning business owners",
-        "Lifetime access to course materials and updates",
+        "Complete step-by-step guide to starting your cleaning business",
+        "Proven scaling strategies used by successful UK cleaning companies",
+        "Client acquisition blueprint with marketing templates and scripts",
+        "Pricing calculator and profitability models for different service types",
+        "Operations manual with checklists and standard operating procedures",
+        "Staff recruitment, training, and management frameworks",
+        "Equipment and supply sourcing guide with trusted supplier recommendations",
+        "Service packages and upselling strategies to maximize revenue",
+        "Quality control systems and customer satisfaction protocols",
+        "Insurance, licensing, and legal compliance guidance",
+        "Contract templates for clients and staff agreements",
+        "Time management and scheduling optimization tools",
       ],
       whoIsThisFor: [
-        "Individuals looking to start a cleaning business with minimal investment",
-        "Existing cleaning business owners wanting to scale",
-        "People seeking a recession-proof business opportunity",
-        "Stay-at-home parents wanting flexible income",
-        "Anyone wanting to build a systematic, scalable service business",
-        "Immigrants and entrepreneurs seeking UK business opportunities",
+        "Aspiring entrepreneurs looking to start a cleaning business with minimal investment",
+        "Existing cleaning business owners ready to scale and grow",
+        "Individuals seeking a flexible, recession-proof business opportunity",
+        "Stay-at-home parents wanting to build income around family commitments",
+        "Anyone passionate about building a service-based business",
+        "Immigrants and new UK residents seeking business opportunities",
+        "People wanting to transition from employment to business ownership",
       ],
       process: [
         {
           step: 1,
-          title: "Business Foundation",
+          title: "Foundation & Setup",
           description:
-            "Set up your cleaning business legally, choose your niche (residential, commercial, or specialized), and establish your brand identity.",
+            "Access our comprehensive guides to establish your cleaning business legally, choose your niche (residential, commercial, or specialized), register your business, and set up essential systems from day one.",
         },
         {
           step: 2,
-          title: "Systems & Operations",
+          title: "Operations & Systems",
           description:
-            "Develop operational systems, create service packages, establish pricing strategies, and set up quality control processes.",
+            "Develop efficient operational systems, create compelling service packages, establish competitive pricing strategies, and implement quality control processes that ensure consistent excellence.",
         },
         {
           step: 3,
           title: "Client Acquisition",
           description:
-            "Implement proven marketing strategies to attract your first clients, from local advertising to digital marketing and networking.",
+            "Implement proven marketing strategies to attract your first clients through local advertising, digital marketing, networking, and referral systems that generate steady business flow.",
         },
         {
           step: 4,
-          title: "Service Delivery",
+          title: "Service Delivery & Excellence",
           description:
-            "Master efficient cleaning techniques, manage client relationships, handle feedback, and ensure consistent quality service delivery.",
+            "Master efficient cleaning techniques, manage client relationships professionally, handle feedback constructively, and ensure consistent service quality that turns clients into loyal advocates.",
         },
         {
           step: 5,
-          title: "Growth & Team Building",
+          title: "Growth & Team Expansion",
           description:
-            "Scale your business by hiring and training staff, automating operations, expanding services, and building a business that generates income without your direct involvement.",
+            "Scale your business strategically by hiring and training reliable staff, automating operations, expanding service offerings, and building a business that generates income beyond your personal time investment.",
         },
       ],
     },
   },
-  {
-    slug: "healthcare-consultancy",
-    title: "Healthcare Consultancy",
-    shortDescription:
-      "Navigate the UK healthcare sector with expert advice for professionals and healthcare businesses.",
-    description:
-      "Whether you're a healthcare professional or running a healthcare business, our consultancy provides specialized guidance for navigating the complex UK healthcare landscape.",
-    icon: "HeartPulse",
-    downloadLink:
-      "https://res.cloudinary.com/popit/raw/upload/v1762831152/DSS-EBOOKS/Start_Your_Care_Agency_in_the_UK_hkilur.odt",
-    features: [
-      "Career Guidance",
-      "Registration Support",
-      "Compliance Advice",
-      "Professional Development",
-    ],
-    color: "from-red-500 to-rose-600",
-    gradient: "bg-linear-to-br from-red-500/10 to-rose-600/10",
-    price_id: "price_1SQeGpBcFFRNjrpbRxAqZv7D",
-    quantity: 1,
-    imageUrl:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
-    detailedContent: {
-      overview:
-        "The UK healthcare sector offers incredible opportunities for qualified professionals and entrepreneurs, but navigating registration requirements, compliance regulations, and career pathways can be overwhelming. Our Healthcare Consultancy provides expert guidance to help you successfully establish your healthcare career or business in the UK.",
-      benefits: [
-        "Fast-track your healthcare career or business setup",
-        "Avoid costly mistakes and regulatory pitfalls",
-        "Expert guidance through complex registration processes",
-        "Stay compliant with ever-changing healthcare regulations",
-        "Access to industry connections and opportunities",
-        "Maximize your earning potential with strategic career planning",
-        "Peace of mind knowing you're following best practices",
-      ],
-      whatYouGet: [
-        "Personalized career pathway consultation for healthcare professionals",
-        "Professional registration guidance (NMC, GMC, HCPC, CQC, etc.)",
-        "Compliance audit and regulatory guidance",
-        "Business setup support for healthcare ventures",
-        "CV and application review for NHS and private sector roles",
-        "Interview preparation and coaching",
-        "Continuing Professional Development (CPD) planning",
-        "Networking opportunities with healthcare industry professionals",
-        "Six one-on-one consultations (60 minutes each)",
-        "Document review and application support",
-        "Three months of follow-up email support",
-      ],
-      whoIsThisFor: [
-        "International healthcare professionals relocating to the UK",
-        "UK healthcare workers seeking career advancement",
-        "Entrepreneurs starting healthcare businesses (care homes, clinics, etc.)",
-        "Healthcare professionals navigating registration processes",
-        "Nurses, doctors, therapists, and allied health professionals",
-        "Anyone looking to transition into the UK healthcare sector",
-      ],
-      process: [
-        {
-          step: 1,
-          title: "Initial Assessment",
-          description:
-            "We review your qualifications, experience, and career goals to create a customized roadmap for your healthcare journey in the UK.",
-        },
-        {
-          step: 2,
-          title: "Registration Planning",
-          description:
-            "Guide you through the specific registration requirements for your profession, including documentation, examinations, and timelines.",
-        },
-        {
-          step: 3,
-          title: "Application Support",
-          description:
-            "Assist with completing applications, preparing required documents, and ensuring everything meets regulatory standards.",
-        },
-        {
-          step: 4,
-          title: "Career Development",
-          description:
-            "Develop your professional profile, optimize your CV, prepare for interviews, and identify the best opportunities for your skills.",
-        },
-        {
-          step: 5,
-          title: "Ongoing Support",
-          description:
-            "Provide continued guidance as you navigate your career, including CPD planning, career progression advice, and regulatory compliance updates.",
-        },
-      ],
-    },
-  },
-  {
-    slug: "immigration-self-sponsorship-guidance",
-    title: "Immigration & Self-Sponsorship Guidance",
-    shortDescription:
-      "Get expert support navigating UK immigration processes and self-sponsorship visa routes.",
-    description:
-      "Simplify your UK immigration journey with expert guidance on visa applications, self-sponsorship routes, and compliance requirements. Make your UK dreams a reality.",
-    icon: "Plane",
-    downloadLink:
-      "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/The_Human_Guide_to_Moving_to_the_UK_as_an_International_Student_lsrpv0.odt",
-    features: [
-      "Visa Guidance",
-      "Document Preparation",
-      "Self-Sponsorship Routes",
-      "Application Support",
-    ],
-    color: "from-indigo-500 to-blue-600",
-    gradient: "bg-linear-to-br from-indigo-500/10 to-blue-600/10",
-    price_id: "price_1SQeKbBcFFRNjrpbGOQzELJu",
-    quantity: 1,
-    imageUrl:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80",
-    detailedContent: {
-      overview:
-        "Navigating UK immigration law can feel like an impossible maze, especially when it comes to self-sponsorship visa routes. Our Immigration & Self-Sponsorship Guidance service demystifies the process, providing you with expert support to successfully obtain your UK visa and build your life in Britain. We specialize in helping entrepreneurs and skilled professionals achieve their UK immigration goals.",
-      benefits: [
-        "Avoid costly application mistakes and rejections",
-        "Understand complex immigration rules in plain English",
-        "Maximize your chances of visa approval",
-        "Save time with streamlined application processes",
-        "Access self-sponsorship routes many people don't know about",
-        "Stay compliant with Home Office requirements",
-        "Expert guidance from start to settlement",
-      ],
-      whatYouGet: [
-        "Comprehensive eligibility assessment for multiple visa routes",
-        "Detailed self-sponsorship setup guidance (Skilled Worker, Innovator Founder)",
-        "Company formation and sponsorship license application support",
-        "Document checklist and preparation assistance",
-        "Application form review and guidance",
-        "Financial requirement calculations and planning",
-        "Compliance monitoring and reporting guidance",
-        "Interview preparation (if required)",
-        "Four one-on-one consultations (90 minutes each)",
-        "Email support throughout your application process",
-        "Post-approval settlement pathway planning",
-      ],
-      whoIsThisFor: [
-        "Entrepreneurs wanting to start a UK business and self-sponsor",
-        "Skilled professionals seeking UK work opportunities",
-        "International students transitioning to work visas",
-        "Business owners expanding operations to the UK",
-        "Individuals seeking alternative routes to UK residency",
-        "Anyone confused by UK immigration requirements",
-      ],
-      process: [
-        {
-          step: 1,
-          title: "Eligibility Assessment",
-          description:
-            "We review your circumstances, qualifications, and goals to identify the best visa route for your situation, including self-sponsorship options.",
-        },
-        {
-          step: 2,
-          title: "Strategy Development",
-          description:
-            "Create a detailed immigration strategy, including timelines, document requirements, and financial planning to meet all visa criteria.",
-        },
-        {
-          step: 3,
-          title: "Business & Sponsorship Setup",
-          description:
-            "For self-sponsorship routes, we guide you through company formation, sponsorship license application, and compliance setup.",
-        },
-        {
-          step: 4,
-          title: "Application Preparation",
-          description:
-            "Compile all required documents, complete application forms, and ensure everything meets Home Office standards before submission.",
-        },
-        {
-          step: 5,
-          title: "Submission & Follow-up",
-          description:
-            "Submit your application with confidence and receive ongoing support throughout the processing period, with guidance on next steps and settlement planning.",
-        },
-      ],
-    },
-  },
-  {
-    slug: "support-for-african-entrepreneurs",
-    title: "Support for African Entrepreneurs in the UK",
-    shortDescription:
-      "Specialized support for African entrepreneurs establishing UK businesses—whether you're based in Africa or already in the UK.",
-    description:
-      "Comprehensive support for African entrepreneurs at any stage of their UK business journey. From company formation and visa sponsorship to scaling operations, we provide culturally-informed guidance to help you build successful UK businesses from anywhere in the world.",
-    icon: "Users",
-    downloadLink:
-      "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/The_Complete_Guide_to_CQC_Registration_obxmp4.odt",
-    features: [
-      "Remote Business Setup",
-      "UK Visa Pathways",
-      "Cultural Navigation",
-      "Network Building",
-    ],
-    color: "from-amber-500 to-orange-600",
-    gradient: "bg-linear-to-br from-amber-500/10 to-orange-600/10",
-    price_id: "price_1SQeNoBcFFRNjrpbWyYP7xTa",
-    quantity: 1,
-    imageUrl:
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
-    detailedContent: {
-      overview:
-        "Whether you're an African entrepreneur based on the continent or already in the UK, establishing and growing a British business comes with unique challenges. Our specialized support program is designed specifically for African entrepreneurs, providing comprehensive guidance on UK business setup, visa pathways, cultural navigation, and growth strategies. We help you build your UK business presence regardless of your current location or visa status.",
-      benefits: [
-        "Establish a legitimate UK business from anywhere in Africa",
-        "Access UK visa pathways through business ownership (even without prior UK presence)",
-        "Navigate UK business culture with culturally-informed guidance",
-        "Connect with a supportive community of African entrepreneurs",
-        "Learn from mentors who've successfully built UK businesses",
-        "Leverage your unique African perspective as a competitive advantage",
-        "Build authentic connections within UK and diaspora business networks",
-      ],
-      whatYouGet: [
-        "UK company formation and registration support (LTD, LLP, etc.)",
-        "Business bank account setup guidance for non-UK residents",
-        "UK business address and registered office solutions",
-        "Visa pathway consultation (Innovator Founder, Skilled Worker self-sponsorship)",
-        "Remote business operations setup and management guidance",
-        "Personalized mentorship from successful African UK entrepreneurs",
-        "Cultural navigation toolkit for UK business environment",
-        "Access to exclusive African entrepreneur network and community",
-        "Marketing strategies that bridge African heritage with UK audiences",
-        "UK compliance and tax obligations guidance",
-        "Funding and investment opportunities (UK and international)",
-        "12 group coaching sessions with African entrepreneur cohort",
-        "Four one-on-one mentorship sessions (60 minutes each)",
-        "Lifetime access to community platform and resources",
-      ],
-      whoIsThisFor: [
-        "African entrepreneurs in Africa wanting to establish UK businesses",
-        "Business owners seeking UK market expansion from African base",
-        "Entrepreneurs exploring UK visa options through business ownership",
-        "African diaspora professionals transitioning to entrepreneurship",
-        "First-generation immigrants building their UK business dreams",
-        "Anyone wanting culturally-aligned mentorship for UK business success",
-      ],
-      process: [
-        {
-          step: 1,
-          title: "Discovery & Business Assessment",
-          description:
-            "We assess your current situation, business goals, visa needs (if applicable), and create a personalized roadmap for establishing your UK business presence.",
-        },
-        {
-          step: 2,
-          title: "UK Business Formation",
-          description:
-            "Set up your UK company structure, register with relevant authorities, establish business banking, and create the foundation for legitimate UK operations—all manageable remotely.",
-        },
-        {
-          step: 3,
-          title: "Visa Pathway Development (If Needed)",
-          description:
-            "If you require a UK visa, we guide you through available pathways including business immigration routes, helping you understand requirements and build a strong application.",
-        },
-        {
-          step: 4,
-          title: "Business Launch & Operations",
-          description:
-            "Implement systems for remote or on-ground operations, develop your UK market entry strategy, and launch your business with comprehensive support from our community.",
-        },
-        {
-          step: 5,
-          title: "Growth & Network Expansion",
-          description:
-            "Scale your UK business, expand your professional network, access funding opportunities, and become part of a thriving community of successful African entrepreneurs in the UK.",
-        },
-      ],
-    },
-  },
+
+  // 2. BOOK A CONSULTATION
   {
     slug: "book-a-consultation",
     title: "Book A Consultation",
     shortDescription:
-      "Schedule a personalized 1-hour Zoom consultation at your convenience. Pay once, then book your session anytime via Calendly.",
+      "Schedule a personalized 1-hour Zoom consultation at your convenience. Get expert guidance tailored to your unique goals and challenges.",
     description:
-      "Get direct access to our expertise with a comprehensive one-on-one Zoom consultation. After payment, use our Calendly link to schedule your 1-hour session at a time that suits you. Whether you need guidance on any of our services or have a unique inquiry, we'll provide sharp, top-notch insights to help you get ahead of the game and make informed decisions for your UK journey.",
-    icon: "Users",
-    downloadLink: "",
+      "Gain direct access to our expertise with a comprehensive one-on-one Zoom consultation. After payment, use our Calendly link to schedule your 1-hour session at a time that suits you. Whether you need guidance on any of our services or have unique questions, we'll provide actionable insights to help you make informed decisions and move forward with confidence on your UK journey.",
+    icon: "Calendar",
+    products: [
+      {
+        id: "one-on-one-consultation",
+        name: "One-on-One Expert Consultation",
+        description:
+          "Book a personalized 60-minute Zoom consultation to discuss your goals, challenges, and get tailored advice from our experts.",
+        price: 20,
+        currency: "USD",
+        planId: "plan_G9SKfrwE0PAlP",
+        featured: true,
+      },
+    ],
     features: [
       "1-Hour Zoom Session",
       "Schedule Anytime via Calendly",
@@ -755,75 +774,75 @@ export const servicesData: ServiceData[] = [
     ],
     color: "from-teal-500 to-cyan-600",
     gradient: "bg-linear-to-br from-teal-500/10 to-cyan-600/10",
-    price_id: "price_1SSoMsBcFFRNjrpbOw7iQo7B",
-    quantity: 1,
     imageUrl:
+      "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&q=80",
+    gridImageUrl:
       "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&q=80",
     detailedContent: {
       overview:
-        "Sometimes you need direct, personalized guidance to navigate your unique situation. Our Book A Consultation service gives you exclusive one-on-one access to our team of experts for a comprehensive 60-minute Zoom session. Pay once, receive your Calendly booking link, and schedule your consultation at any time that works for you. Whether you're exploring our services, have specific questions, or need strategic insights for your UK journey, this consultation provides the clarity and direction you need to move forward with confidence.",
+        "Sometimes you need direct, personalized guidance to navigate your unique situation effectively. Our Book A Consultation service gives you exclusive one-on-one access to our team of experts for a comprehensive 60-minute Zoom session. Pay once, receive your Calendly booking link instantly, and schedule your consultation at any time that works for you—whether that's next week or next month. Whether you're exploring our services, have specific questions about your UK journey, or need strategic insights for your business or career, this consultation provides the clarity, direction, and actionable advice you need to move forward with confidence.",
       benefits: [
-        "Convenient Zoom meeting from anywhere in the world",
-        "Flexible scheduling—book your session at any time that suits you",
-        "Get personalized advice tailored to your specific situation",
-        "Discuss any of our services or explore multiple options",
-        "Receive expert insights and strategic recommendations",
-        "Ask questions in a judgment-free, supportive environment",
-        "Leave with a clear action plan for your next steps",
-        "Save time by getting focused guidance in one session",
+        "Convenient Zoom meeting accessible from anywhere in the world",
+        "Complete scheduling flexibility—book at any time that suits you",
+        "Get personalized advice tailored specifically to your situation",
+        "Discuss any of our services or explore multiple options in one session",
+        "Receive expert insights and strategic recommendations you can act on",
+        "Ask questions freely in a judgment-free, supportive environment",
+        "Leave with a clear, customized action plan for your next steps",
+        "Save time and money by getting focused guidance in one intensive session",
       ],
       whatYouGet: [
-        "60-minute one-on-one Zoom video consultation",
-        "Calendly booking link sent immediately after payment",
-        "Freedom to schedule your session at your preferred date and time",
-        "Pre-consultation questionnaire to maximize session value",
-        "Personalized discussion covering your specific needs and goals",
+        "60-minute one-on-one Zoom video consultation with an expert",
+        "Calendly booking link sent immediately after payment confirmation",
+        "Complete freedom to schedule your session at your preferred date and time",
+        "Pre-consultation questionnaire to maximize the value of your session",
+        "Personalized discussion covering your specific needs, goals, and challenges",
         "Expert insights and recommendations from experienced consultants",
-        "Customized action plan with clear next steps",
-        "Resource recommendations tailored to your situation",
-        "Session notes and key takeaways sent after the meeting",
-        "Follow-up email support for clarifying questions (48 hours post-call)",
-        "Recording of the session available upon request",
+        "Customized action plan with clear next steps tailored to your situation",
+        "Resource recommendations and tools specific to your needs",
+        "Session notes and key takeaways emailed after the meeting",
+        "48-hour follow-up email support for clarifying questions",
+        "Optional session recording available upon request",
       ],
       whoIsThisFor: [
-        "Anyone exploring our services and wanting personalized guidance",
-        "Professionals with unique situations requiring tailored advice",
+        "Anyone exploring our services and wanting personalized guidance before committing",
+        "Professionals with unique situations requiring tailored, expert advice",
         "Entrepreneurs needing strategic direction for UK business ventures",
-        "Individuals wanting to validate their plans before taking action",
-        "Anyone who values expert insights before making important decisions",
-        "People seeking clarity on the best path forward for their goals",
-        "Busy professionals who need flexible scheduling options",
+        "Individuals wanting to validate their plans before taking major action",
+        "Anyone who values expert insights before making important life decisions",
+        "People seeking clarity on the best path forward for their specific goals",
+        "Busy professionals who need flexible scheduling and focused guidance",
       ],
       process: [
         {
           step: 1,
           title: "Complete Your Payment",
           description:
-            "Purchase your consultation session securely through our payment system. Once payment is confirmed, you'll immediately receive your unique Calendly booking link.",
+            "Purchase your consultation session securely through our payment system. Once payment is confirmed, you'll immediately receive your unique Calendly booking link via email.",
         },
         {
           step: 2,
           title: "Schedule at Your Convenience",
           description:
-            "Use your personalized Calendly link to choose any available date and time that works for your schedule. Select a slot that fits your timezone and preferences—you have complete flexibility.",
+            "Use your personalized Calendly link to browse available time slots and choose any date and time that works perfectly for your schedule. Select a slot that fits your timezone and preferences—you have complete flexibility to book when it suits you best.",
         },
         {
           step: 3,
           title: "Complete Pre-Consultation Form",
           description:
-            "After booking, fill out a brief questionnaire about your background, goals, and specific questions. This helps us prepare and ensure we maximize the value of your session.",
+            "After booking your time slot, fill out a brief questionnaire about your background, current situation, goals, and specific questions you'd like to address. This preparation ensures we maximize the value and impact of your consultation session.",
         },
         {
           step: 4,
           title: "Join Your Zoom Consultation",
           description:
-            "At your scheduled time, join the Zoom meeting using the link provided. Have an in-depth, personalized discussion with our expert consultant who will address your questions and provide tailored guidance.",
+            "At your scheduled time, join the Zoom meeting using the link provided in your confirmation email. Engage in an in-depth, personalized discussion with our expert consultant who will address your questions, provide tailored guidance, and help you develop a clear action plan.",
         },
         {
           step: 5,
           title: "Receive Your Action Plan & Take Action",
           description:
-            "After the session, receive a summary email with key takeaways, your personalized action plan, and recommended resources. You'll also have 48 hours of follow-up email support for any clarifying questions that arise.",
+            "After the session concludes, receive a comprehensive summary email with key takeaways, your personalized action plan, recommended resources, and next steps. You'll also have 48 hours of follow-up email support for any clarifying questions that arise as you begin implementing your plan.",
         },
       ],
     },
