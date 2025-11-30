@@ -16,7 +16,7 @@ import {
   GraduationCap,
   Calendar,
 } from "lucide-react";
-import { servicesData } from "../../lib/service-data";
+import { servicesData } from "../../../lib/service-data";
 
 interface Service {
   title: string;

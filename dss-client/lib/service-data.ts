@@ -1,5 +1,3 @@
-import { LucideIcon } from "lucide-react";
-
 export interface Product {
   id: string;
   name: string;
@@ -9,6 +7,7 @@ export interface Product {
   planId: string;
   downloadLink?: string;
   featured?: boolean;
+  isConsultation?: boolean;
 }
 
 export interface ServiceData {
@@ -57,6 +56,7 @@ export const servicesData: ServiceData[] = [
         downloadLink:
           "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/The_Complete_Guide_to_CQC_Registration_obxmp4.odt",
         featured: true,
+        isConsultation: false,
       },
       {
         id: "win-clients-contracts",
@@ -69,6 +69,7 @@ export const servicesData: ServiceData[] = [
         downloadLink:
           "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/Win_Clients_Land_Contracts_-The_Human_Blueprint_for_Your_UK_Care_Agency_byrosw.odt",
         featured: true,
+        isConsultation: false,
       },
       {
         id: "start-care-agency",
@@ -77,9 +78,11 @@ export const servicesData: ServiceData[] = [
           "Everything you need to launch your registered care agency — from setup to first clients.",
         price: 60,
         currency: "USD",
-        planId: "plan_G9SKfrwE0PAlP",
+        planId: "plan_MBreuXjojcMeB",
         downloadLink:
           "https://res.cloudinary.com/popit/raw/upload/v1762831152/DSS-EBOOKS/Start_Your_Care_Agency_in_the_UK_hkilur.odt",
+        featured: true,
+        isConsultation: false,
       },
       {
         id: "non-cqc-care-agency",
@@ -88,7 +91,11 @@ export const servicesData: ServiceData[] = [
           "Launch a successful non-CQC care service with this easy, practical guide tailored for beginners.",
         price: 50,
         currency: "USD",
-        planId: "plan_G9SKfrwE0PAlP",
+        planId: "plan_BrDbh1ajygLVS",
+        downloadLink:
+          "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/Win_Clients_Land_Contracts_-The_Human_Blueprint_for_Your_UK_Care_Agency_byrosw.odt",
+        featured: true,
+        isConsultation: false,
       },
       {
         id: "healthcare-consultation",
@@ -97,7 +104,8 @@ export const servicesData: ServiceData[] = [
           "Book a personalized consultation to discuss your care business goals, registration challenges, or strategy needs.",
         price: 70,
         currency: "USD",
-        planId: "plan_G9SKfrwE0PAlP",
+        planId: "plan_mBq4NH5JHRysc",
+        isConsultation: true,
       },
     ],
     features: [
@@ -198,10 +206,11 @@ export const servicesData: ServiceData[] = [
           "Real, practical advice on studying, settling, and succeeding in the UK — written for real students by real people.",
         price: 30,
         currency: "USD",
-        planId: "plan_G9SKfrwE0PAlP",
+        planId: "plan_3YaNWipGUNu3i",
         downloadLink:
           "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/The_Human_Guide_to_Moving_to_the_UK_as_an_International_Student_lsrpv0.odt",
         featured: true,
+        isConsultation: false,
       },
     ],
     features: [
@@ -301,10 +310,11 @@ export const servicesData: ServiceData[] = [
           "Discover where and how to find legitimate UK sponsors to support your Skilled Worker visa application.",
         price: 20,
         currency: "USD",
-        planId: "plan_G9SKfrwE0PAlP",
+        planId: "plan_5NcJZ7YZZYmlI",
         downloadLink:
           "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/How_to_Find_UK_Companies_That_Can_Sponsor_Skilled_Workers_dzhzsb.odt",
         featured: true,
+        isConsultation: false,
       },
       {
         id: "cv-tailoring-service",
@@ -313,8 +323,11 @@ export const servicesData: ServiceData[] = [
           "Get a professionally crafted CV that matches UK recruitment expectations and makes you stand out.",
         price: 25,
         currency: "USD",
-        planId: "plan_G9SKfrwE0PAlP",
+        planId: "plan_vgldd6T588OoL",
+        downloadLink:
+          "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/How_to_Find_UK_Companies_That_Can_Sponsor_Skilled_Workers_dzhzsb.odt",
         featured: true,
+        isConsultation: false,
       },
       {
         id: "sponsor-workers-list",
@@ -323,7 +336,11 @@ export const servicesData: ServiceData[] = [
           "Access the UK Home Office Register of Sponsors (public data), compiled for your convenience.",
         price: 1,
         currency: "USD",
-        planId: "plan_G9SKfrwE0PAlP",
+        planId: "plan_mXEfVLGQpEtse",
+        downloadLink:
+          "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/How_to_Find_UK_Companies_That_Can_Sponsor_Skilled_Workers_dzhzsb.odt",
+        featured: true,
+        isConsultation: false,
       },
     ],
     features: [
@@ -424,17 +441,22 @@ export const servicesData: ServiceData[] = [
           "Professional social media strategy, content creation, and community management to build your brand and engage your audience across platforms.",
         price: 25,
         currency: "USD",
-        planId: "plan_G9SKfrwE0PAlP",
+        planId: "plan_NWjEDeEVAjtVg",
+        downloadLink:
+          "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/How_to_Find_UK_Companies_That_Can_Sponsor_Skilled_Workers_dzhzsb.odt",
+        featured: true,
+        isConsultation: false,
       },
       {
         id: "website-design-development",
         name: "Website Design & Development",
         description:
-          "Custom, responsive website design and development that showcases your brand beautifully and converts visitors into customers.",
-        price: 700,
+          "Custom, responsive website design and development that showcases your brand beautifully and converts visitors into customers. Book a consultation for only 1 USD to get started.",
+        price: 1,
         currency: "USD",
-        planId: "plan_G9SKfrwE0PAlP",
+        planId: "plan_QQ1YX6TPVbip9",
         featured: true,
+        isConsultation: true,
       },
       {
         id: "software-engineering-coaching",
@@ -443,7 +465,11 @@ export const servicesData: ServiceData[] = [
           "One-on-one coaching to level up your coding skills, master modern development practices, and advance your software engineering career.",
         price: 100,
         currency: "USD",
-        planId: "plan_G9SKfrwE0PAlP",
+        planId: "plan_YREmQirGzGOUn",
+        downloadLink:
+          "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/How_to_Find_UK_Companies_That_Can_Sponsor_Skilled_Workers_dzhzsb.odt",
+        featured: true,
+        isConsultation: false,
       },
     ],
     features: [
@@ -544,8 +570,11 @@ export const servicesData: ServiceData[] = [
           "A beginner-friendly guide that walks you through the exact steps to legally register and launch your UK business.",
         price: 7.5,
         currency: "USD",
-        planId: "plan_G9SKfrwE0PAlP",
+        planId: "plan_WRNXH6YX4vNJ0",
+        downloadLink:
+          "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/How_to_Find_UK_Companies_That_Can_Sponsor_Skilled_Workers_dzhzsb.odt",
         featured: true,
+        isConsultation: false,
       },
     ],
     features: [
@@ -641,25 +670,29 @@ export const servicesData: ServiceData[] = [
     products: [
       {
         id: "scale-cleaning-business",
-        name: "Scale Your Cleaning Business in the UK – A Real Human Blueprint",
+        name: "Scale Your Cleaning Business in the UK: A Real Human Blueprint",
         description:
           "Learn how to expand your cleaning business, attract more clients, and build a reliable team using proven strategies.",
         price: 60,
         currency: "USD",
-        planId: "plan_G9SKfrwE0PAlP",
+        planId: "plan_VQPReoZT830xE",
         downloadLink:
           "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/Scale_Your_Cleaning_Business_in_the_UK_-_A_Real_Human_Blueprint_t5bwfp.odt",
         featured: true,
+        isConsultation: false,
       },
       {
         id: "start-cleaning-company",
         name: "Start Your Successful Cleaning Company",
         description:
-          "Get the full step-by-step guide to launching a profitable cleaning company in the UK — from setup to scaling.",
+          "Get the full step-by-step guide to launching a profitable cleaning company in the UK; from setup to scaling.",
         price: 50,
         currency: "USD",
-        planId: "plan_G9SKfrwE0PAlP",
+        planId: "plan_Ow6xj6Yh3DadR",
+        downloadLink:
+          "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/How_to_Find_UK_Companies_That_Can_Sponsor_Skilled_Workers_dzhzsb.odt",
         featured: true,
+        isConsultation: false,
       },
     ],
     features: [
@@ -745,7 +778,6 @@ export const servicesData: ServiceData[] = [
     },
   },
 
-  // 2. BOOK A CONSULTATION
   {
     slug: "book-a-consultation",
     title: "Book A Consultation",
@@ -762,8 +794,9 @@ export const servicesData: ServiceData[] = [
           "Book a personalized 60-minute Zoom consultation to discuss your goals, challenges, and get tailored advice from our experts.",
         price: 20,
         currency: "USD",
-        planId: "plan_G9SKfrwE0PAlP",
+        planId: "plan_vuQIUza9NcdEs",
         featured: true,
+        isConsultation: true,
       },
     ],
     features: [
@@ -855,4 +888,20 @@ export function getServiceBySlug(slug: string): ServiceData | undefined {
 
 export function getAllServiceSlugs(): string[] {
   return servicesData.map((service) => service.slug);
+}
+
+export function getProductByPlanId(planId: string): Product | undefined {
+  for (const service of servicesData) {
+    const product = service.products.find((p) => p.planId === planId);
+    if (product) {
+      return product;
+    }
+  }
+  return undefined;
+}
+
+export function getServiceByPlanId(planId: string): ServiceData | undefined {
+  return servicesData.find((service) =>
+    service.products.some((p) => p.planId === planId)
+  );
 }

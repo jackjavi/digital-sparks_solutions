@@ -14,7 +14,7 @@ import {
   ShoppingCart,
   Download,
 } from "lucide-react";
-import { ServiceData } from "../../lib/service-data";
+import { ServiceData } from "../../../../lib/service-data";
 import CheckoutModal from "./CheckoutModal";
 
 interface ServiceDetailClientProps {

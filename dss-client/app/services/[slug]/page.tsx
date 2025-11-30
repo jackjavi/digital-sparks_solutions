@@ -3,7 +3,7 @@ import {
   getServiceBySlug,
   getAllServiceSlugs,
 } from "../../../lib/service-data";
-import ServiceDetailClient from "../../components/ServiceDetailClient";
+import ServiceDetailClient from "./_components/ServiceDetailClient";
 
 // Generate static params for all service slugs
 export async function generateStaticParams() {

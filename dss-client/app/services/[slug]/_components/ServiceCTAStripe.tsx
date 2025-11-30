@@ -1,5 +1,5 @@
 import React from "react";
-import CheckoutComponent from "./CheckoutComponent";
+import CheckoutComponent from "./CheckoutComponentStripe";
 
 interface ServiceCTAProps {
   priceId: string;
