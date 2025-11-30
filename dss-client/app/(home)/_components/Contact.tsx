@@ -13,7 +13,7 @@ import {
   MessageSquare,
   AlertCircle,
 } from "lucide-react";
-import { contactAPI } from "../api/contact";
+import { contactAPI } from "../../api/contact";
 
 const Contact: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
