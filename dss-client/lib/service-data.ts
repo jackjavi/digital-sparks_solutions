@@ -52,7 +52,7 @@ export const servicesData: ServiceData[] = [
           "Step-by-step guidance to successfully register your care agency with the CQC and meet all compliance standards.",
         price: 100,
         currency: "USD",
-        planId: "plan_4aGqSh4myUGhG",
+        planId: "plan_iHlEHh6iTacZA",
         downloadLink:
           "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/The_Complete_Guide_to_CQC_Registration_obxmp4.odt",
         featured: true,
@@ -206,7 +206,7 @@ export const servicesData: ServiceData[] = [
           "Real, practical advice on studying, settling, and succeeding in the UK — written for real students by real people.",
         price: 30,
         currency: "USD",
-        planId: "plan_3YaNWipGUNu3i",
+        planId: "plan_ilMmGT5TnYOfO",
         downloadLink:
           "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/The_Human_Guide_to_Moving_to_the_UK_as_an_International_Student_lsrpv0.odt",
         featured: true,
@@ -310,7 +310,7 @@ export const servicesData: ServiceData[] = [
           "Discover where and how to find legitimate UK sponsors to support your Skilled Worker visa application.",
         price: 20,
         currency: "USD",
-        planId: "plan_5NcJZ7YZZYmlI",
+        planId: "plan_AsKbnBvXP8bAZ",
         downloadLink:
           "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/How_to_Find_UK_Companies_That_Can_Sponsor_Skilled_Workers_dzhzsb.odt",
         featured: true,

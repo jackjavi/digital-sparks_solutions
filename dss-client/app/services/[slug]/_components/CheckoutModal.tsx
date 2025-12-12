@@ -158,7 +158,10 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     session.
                   </p>
                   <CalendlyEmbed
-                    url={process.env.NEXT_PUBLIC_CALENDLY_EVENT_LINK || ""}
+                    url={
+                      process.env.NEXT_PUBLIC_CALENDLY_EVENT_LINK ||
+                      "https://calendly.com/digitalsparkssolutions-info/30min"
+                    }
                   />
                 </div>
               ) : (
