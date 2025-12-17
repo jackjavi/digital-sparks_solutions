@@ -50,7 +50,7 @@ export const servicesData: ServiceData[] = [
         name: "Complete Guide to CQC Registration",
         description:
           "Step-by-step guidance to successfully register your care agency with the CQC and meet all compliance standards.",
-        price: 100,
+        price: 135,
         currency: "USD",
         planId: "plan_QilQlPvO1MY6Q",
         downloadLink:
@@ -63,7 +63,7 @@ export const servicesData: ServiceData[] = [
         name: "Win Clients & Land Contracts – The Human Blueprint for Your UK Agency",
         description:
           "Master the strategies real care agency owners use to attract clients, secure contracts, and grow sustainably.",
-        price: 150,
+        price: 200,
         currency: "USD",
         planId: "plan_Cjku0NApzDhzM",
         downloadLink:
@@ -76,7 +76,7 @@ export const servicesData: ServiceData[] = [
         name: "Start Your Care Agency in the UK",
         description:
           "Everything you need to launch your registered care agency — from setup to first clients.",
-        price: 60,
+        price: 80,
         currency: "USD",
         planId: "plan_3mJh7D44s7t5S",
         downloadLink:
@@ -89,7 +89,7 @@ export const servicesData: ServiceData[] = [
         name: "Start Your Non-CQC Care Agency in the UK (Step-by-Step Guide)",
         description:
           "Launch a successful non-CQC care service with this easy, practical guide tailored for beginners.",
-        price: 50,
+        price: 70,
         currency: "USD",
         planId: "plan_VMBEBmL6ED7X1",
         downloadLink:
@@ -102,7 +102,7 @@ export const servicesData: ServiceData[] = [
         name: "One-to-One Healthcare Consultation",
         description:
           "Book a personalized consultation to discuss your care business goals, registration challenges, or strategy needs.",
-        price: 70,
+        price: 95,
         currency: "USD",
         planId: "plan_2UDMih9SkT0j1",
         isConsultation: true,
@@ -204,7 +204,7 @@ export const servicesData: ServiceData[] = [
         name: "The Human Guide to Moving to the UK as an International Student",
         description:
           "Real, practical advice on studying, settling, and succeeding in the UK — written for real students by real people.",
-        price: 30,
+        price: 40,
         currency: "USD",
         planId: "plan_wZ2R34c2bpYCB",
         downloadLink:
@@ -308,7 +308,7 @@ export const servicesData: ServiceData[] = [
         name: "How to Find UK Companies That Can Sponsor Skilled Workers",
         description:
           "Discover where and how to find legitimate UK sponsors to support your Skilled Worker visa application.",
-        price: 20,
+        price: 25,
         currency: "USD",
         planId: "plan_CokQuD4loNWSS",
         downloadLink:
@@ -321,7 +321,7 @@ export const servicesData: ServiceData[] = [
         name: "Tailored CV Service to Meet UK Employers' Standards",
         description:
           "Get a professionally crafted CV that matches UK recruitment expectations and makes you stand out.",
-        price: 25,
+        price: 35,
         currency: "USD",
         planId: "plan_srgDt4d7KHsZ3",
         downloadLink:
@@ -334,7 +334,7 @@ export const servicesData: ServiceData[] = [
         name: "Worker & Temporary Workers List",
         description:
           "Access the UK Home Office Register of Sponsors (public data), compiled for your convenience.",
-        price: 1,
+        price: 1.5,
         currency: "USD",
         planId: "plan_UaUV6tSssev8I",
         downloadLink:
@@ -439,7 +439,7 @@ export const servicesData: ServiceData[] = [
         name: "Social Media Management",
         description:
           "Professional social media strategy, content creation, and community management to build your brand and engage your audience across platforms.",
-        price: 25,
+        price: 35,
         currency: "USD",
         planId: "plan_umqjk0mAG3c8o",
         downloadLink:
@@ -452,7 +452,7 @@ export const servicesData: ServiceData[] = [
         name: "Website Design & Development",
         description:
           "Custom, responsive website design and development that showcases your brand beautifully and converts visitors into customers. Book a consultation for only 1 USD to get started.",
-        price: 1,
+        price: 25,
         currency: "USD",
         planId: "plan_pq5A3m2Y4usvS",
         featured: true,
@@ -463,7 +463,7 @@ export const servicesData: ServiceData[] = [
         name: "Software Engineering Coaching",
         description:
           "One-on-one coaching to level up your coding skills, master modern development practices, and advance your software engineering career.",
-        price: 100,
+        price: 135,
         currency: "USD",
         planId: "plan_Y0GWEMpffwDz1",
         downloadLink:
@@ -568,7 +568,7 @@ export const servicesData: ServiceData[] = [
         name: "How to Register Your Business in the UK",
         description:
           "A beginner-friendly guide that walks you through the exact steps to legally register and launch your UK business.",
-        price: 7.5,
+        price: 10,
         currency: "USD",
         planId: "plan_Yrm3hbvImffHH",
         downloadLink:
@@ -673,7 +673,7 @@ export const servicesData: ServiceData[] = [
         name: "Scale Your Cleaning Business in the UK: A Real Human Blueprint",
         description:
           "Learn how to expand your cleaning business, attract more clients, and build a reliable team using proven strategies.",
-        price: 60,
+        price: 80,
         currency: "USD",
         planId: "plan_8CUaOB7ziZkt2",
         downloadLink:
@@ -686,7 +686,7 @@ export const servicesData: ServiceData[] = [
         name: "Start Your Successful Cleaning Company",
         description:
           "Get the full step-by-step guide to launching a profitable cleaning company in the UK; from setup to scaling.",
-        price: 50,
+        price: 65,
         currency: "USD",
         planId: "plan_3FJqmgzoocC4E",
         downloadLink:
@@ -792,7 +792,7 @@ export const servicesData: ServiceData[] = [
         name: "One-on-One Expert Consultation",
         description:
           "Book a personalized 60-minute Zoom consultation to discuss your goals, challenges, and get tailored advice from our experts.",
-        price: 20,
+        price: 25,
         currency: "USD",
         planId: "plan_iQJSZuBZvIEXk",
         featured: true,
