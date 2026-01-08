@@ -57,11 +57,11 @@ const Testimonials: React.FC = () => {
 
   const testimonials = [
     {
-      name: "Adaeze Okonkwo",
+      name: "Sarah Mitchell",
       role: "Tech Entrepreneur",
       company: "InnovateTech UK",
       image:
-        "https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=400",
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
       content:
         "Digital Sparks Solutions transformed my business dream into reality. From helping me navigate the self-sponsorship visa process to developing a comprehensive business plan, they were with me every step. Today, my tech start-up is generating £500K annually with a team of 15. I couldn't have done this without their expertise and genuine support.",
       rating: 5,
@@ -70,11 +70,11 @@ const Testimonials: React.FC = () => {
       gradient: "from-cyan-500 to-blue-600",
     },
     {
-      name: "James Wanyama",
-      role: "Care Home Owner",
+      name: "Michael Thompson",
+      role: "Care Home Manager",
       company: "ComfortCare Solutions",
       image:
-        "https://res.cloudinary.com/popit/image/upload/v1762930055/james-wanyama_rwj2xb.jpg?auto=compress&cs=tinysrgb&w=400",
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
       content:
         "I was overwhelmed trying to navigate CQC registration and compliance. The healthcare consultancy team guided me through every requirement with patience and expertise. Within 8 months, I had a fully operational care home serving 30 residents. Their ongoing support has been invaluable for maintaining quality standards.",
       rating: 5,
@@ -83,11 +83,11 @@ const Testimonials: React.FC = () => {
       gradient: "from-rose-500 to-red-600",
     },
     {
-      name: "Aisha Mwangi",
+      name: "Emma Roberts",
       role: "International Student",
       company: "University of Manchester",
       image:
-        "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=400",
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80",
       content:
         "Getting into my dream UK university seemed impossible until I found Digital Sparks Solutions. They helped me craft a compelling personal statement, navigate the application process, and even secured a £15,000 scholarship for me. I'm now studying Computer Science at one of the UK's top universities. Forever grateful!",
       rating: 5,
@@ -96,11 +96,11 @@ const Testimonials: React.FC = () => {
       gradient: "from-purple-500 to-pink-600",
     },
     {
-      name: "Thabo Nkosi",
+      name: "David Collins",
       role: "Marketing Manager",
       company: "BrightFuture Retail",
       image:
-        "https://res.cloudinary.com/popit/image/upload/v1762930319/Screenshot_from_2025-11-12_09-51-48_lloukx.png?auto=compress&cs=tinysrgb&w=400",
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80",
       content:
         "After months of job applications with no success, I invested in their CV tailoring service. The difference was night and day! Within two weeks, I had three interview invitations. The team understood exactly what UK employers look for and positioned my experience perfectly. I landed my dream role with a 30% salary increase!",
       rating: 5,
@@ -109,11 +109,11 @@ const Testimonials: React.FC = () => {
       gradient: "from-green-500 to-emerald-600",
     },
     {
-      name: "Grace Kamau",
-      role: "Cleaning Business Owner",
+      name: "Rebecca Anderson",
+      role: "Cleaning Business Manager",
       company: "SparkleClean Services",
       image:
-        "https://res.cloudinary.com/popit/image/upload/v1762930509/lady-dark_fahs0s.jpg?auto=compress&cs=tinysrgb&w=400",
+        "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&q=80",
       content:
         "I started as a solo cleaner and thanks to the cleaning business coaching program, I now run a thriving company with 40 employees across 5 locations. The systems, pricing strategies, and client acquisition methods they taught me were game-changers. My annual revenue has grown to £300K and I finally have the freedom I dreamed of.",
       rating: 5,
@@ -122,11 +122,11 @@ const Testimonials: React.FC = () => {
       gradient: "from-amber-500 to-orange-600",
     },
     {
-      name: "Chidi Okafor",
+      name: "James Patterson",
       role: "E-commerce Entrepreneur",
       company: "AfroStyle London",
       image:
-        "https://res.cloudinary.com/popit/image/upload/v1762930169/Screenshot_from_2025-11-12_09-49-16_eyc7z4.png?auto=compress&cs=tinysrgb&w=400",
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
       content:
         "The social media management and website development service took my business from invisible to unmissable. Our online sales increased by 450% in just six months! The team created a stunning website and managed our social media with content that truly resonates with our audience. Best investment I've ever made for my business.",
       rating: 5,
