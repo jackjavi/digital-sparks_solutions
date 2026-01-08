@@ -39,7 +39,7 @@ const Home: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative flex items-center justify-center min-h-screen md:h-screen pt-32 lg:pt-36 pb-16 md:py-24 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-cyan-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950"
+      className="relative flex items-center justify-center min-h-screen 2xl:h-screen pt-32 lg:pt-36 pb-16 md:py-24 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-cyan-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950"
     >
       {/* Background Pattern */}
       <div
