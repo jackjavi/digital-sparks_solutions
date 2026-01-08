@@ -74,7 +74,7 @@ const Testimonials: React.FC = () => {
       role: "Care Home Manager",
       company: "ComfortCare Solutions",
       image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
+        "https://res.cloudinary.com/popit/image/upload/v1767901289/Screenshot_from_2026-01-08_22-40-43_zvkrxa.png",
       content:
         "I was overwhelmed trying to navigate CQC registration and compliance. The healthcare consultancy team guided me through every requirement with patience and expertise. Within 8 months, I had a fully operational care home serving 30 residents. Their ongoing support has been invaluable for maintaining quality standards.",
       rating: 5,
@@ -100,7 +100,7 @@ const Testimonials: React.FC = () => {
       role: "Marketing Manager",
       company: "BrightFuture Retail",
       image:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80",
+        "https://res.cloudinary.com/popit/image/upload/v1767901477/Screenshot_from_2026-01-08_22-44-20_jsric9.png",
       content:
         "After months of job applications with no success, I invested in their CV tailoring service. The difference was night and day! Within two weeks, I had three interview invitations. The team understood exactly what UK employers look for and positioned my experience perfectly. I landed my dream role with a 30% salary increase!",
       rating: 5,
