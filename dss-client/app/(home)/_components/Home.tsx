@@ -65,7 +65,7 @@ const Home: React.FC = () => {
             }}
           >
             {/* Very Light Overlay for Subtle Effect */}
-            <div className="absolute inset-0 bg-white/15 dark:bg-slate-900/10"></div>
+            <div className="absolute inset-0 bg-white dark:bg-slate-900 opacity-15"></div>
           </div>
         </div>
       </div>
