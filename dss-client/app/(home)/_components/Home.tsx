@@ -39,10 +39,10 @@ const Home: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen overflow-hidden pt-26 pb-4 bg-white dark:bg-slate-900"
+      className="relative min-h-screen overflow-hidden pt-20 xl:pt-26 xl:pb-4 bg-white dark:bg-slate-900"
     >
       {/* Hero Section with Cover Image - Constrained like PostHeader */}
-      <div className="relative h-[85vh] overflow-hidden">
+      <div className="relative h-[90vh] xl:h-[85vh] overflow-hidden">
         {/* Background container with max-width constraint */}
         <div className="absolute inset-0 flex items-center justify-center  ">
           <div className="relative w-full max-w-7xl h-full mx-auto px-4 sm:px-6 lg:px-8">
@@ -72,7 +72,7 @@ const Home: React.FC = () => {
         {/* Content Overlay */}
         <div className="absolute inset-0 flex items-end">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-10 md:pb-12 w-full">
-            <div className="max-w-5xl space-y-6 md:space-y-8 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-5xl space-y-4 lg:space-y-6 px-4 sm:px-6 lg:px-8">
               {/* Badge */}
               <div
                 className={`inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-600 to-blue-600 text-white text-sm font-bold rounded-full shadow-lg transition-all duration-1000 ${
@@ -93,7 +93,7 @@ const Home: React.FC = () => {
                     : "opacity-0 translate-y-4"
                 }`}
               >
-                <h1 className="text-2xl sm:text-4xl xl:text-5xl font-black text-white leading-tight font-lilita-one">
+                <h1 className="text-2xl sm:text-3xl xl:text-5xl font-black text-white leading-tight font-lilita-one">
                   Expert Consulting for{" "}
                   <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
                     UK Business Registration
@@ -112,7 +112,7 @@ const Home: React.FC = () => {
               >
                 <a
                   href="/services/book-a-consultation"
-                  className="group relative inline-flex items-center justify-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full overflow-hidden transition-all duration-300 shadow-2xl shadow-cyan-500/50 hover:shadow-cyan-500/70 hover:scale-105 font-nunito font-bold text-sm md:text-base"
+                  className="group relative inline-flex items-center justify-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full overflow-hidden transition-all duration-300 shadow-2xl shadow-cyan-500/50 hover:shadow-cyan-500/70 hover:scale-105 font-nunito font-bold text-sm xl:text-base"
                 >
                   <span className="relative z-10">Book a Consultation</span>
                   <ArrowRight className="h-4 w-4 md:h-5 md:w-5 relative z-10 group-hover:translate-x-1 transition-transform" />
@@ -144,7 +144,7 @@ const Home: React.FC = () => {
                       className="flex items-center gap-2 text-white font-nunito"
                     >
                       <CheckCircle className="h-4 w-4 lg:h-5 lg:w-5 text-cyan-400 flex-shrink-0" />
-                      <span className="text-sm lg:text-base font-semibold">
+                      <span className="text-xs lg:text-sm font-semibold">
                         {item.label}
                       </span>
                     </div>
@@ -154,7 +154,7 @@ const Home: React.FC = () => {
 
               {/* Stats Section */}
               <div
-                className={`grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 pt-4 md:pt-6 transition-all duration-1000 delay-800 ${
+                className={`hidden xl:grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 pt-4 md:pt-6 transition-all duration-1000 delay-800 ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-4"
@@ -168,12 +168,12 @@ const Home: React.FC = () => {
                 ].map((stat, index) => (
                   <div
                     key={index}
-                    className="text-center p-2.5 md:p-3 lg:p-4 bg-white/10 backdrop-blur-md rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300"
+                    className="text-center p-1.5 md:p-2 lg:p-2.5 bg-white/10 backdrop-blur-md rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300"
                   >
-                    <div className="text-xl md:text-2xl lg:text-3xl font-black text-cyan-400 font-lilita-one">
+                    <div className="text-sm md:text-md lg:text-lg font-black text-cyan-400 font-lilita-one">
                       {stat.number}
                     </div>
-                    <div className="text-xs md:text-sm text-white font-nunito mt-0.5 md:mt-1">
+                    <div className="text-xs lg:text-sm text-white font-nunito mt-0.5 md:mt-1">
                       {stat.label}
                     </div>
                   </div>
