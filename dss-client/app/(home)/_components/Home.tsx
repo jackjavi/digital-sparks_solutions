@@ -48,7 +48,7 @@ const Home: React.FC = () => {
           <div className="relative w-full max-w-7xl h-full mx-auto px-4 sm:px-6 lg:px-8">
             {/* Cover Image */}
             <div
-              className="absolute inset-0 bg-cover bg-center rounded-none md:rounded-2xl mx-4 sm:mx-6 lg:mx-8"
+              className="absolute inset-0 bg-cover bg-center rounded-none md:rounded-2xl sm:mx-6 lg:mx-8"
               style={{
                 backgroundImage:
                   "url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070')",
@@ -56,7 +56,7 @@ const Home: React.FC = () => {
             />
 
             {/* Gradient Overlay - Dark to transparent for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/40 rounded-none md:rounded-2xl mx-4 sm:mx-6 lg:mx-8" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/40 rounded-none md:rounded-2xl sm:mx-6 lg:mx-8" />
 
             {/* Animated Pattern Overlay */}
             <div
@@ -70,12 +70,12 @@ const Home: React.FC = () => {
         </div>
 
         {/* Content Overlay */}
-        <div className="absolute inset-0 flex items-end">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-10 md:pb-12 w-full">
-            <div className="max-w-5xl space-y-4 lg:space-y-6 px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 flex items-center ">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full  flex items-center">
+            <div className="max-w-5xl flex flex-col justify-around py-4 space-y-4 md:space-y-6 lg:space-y-6 px-4 sm:px-6 lg:px-8 h-[80vh]">
               {/* Badge */}
               <div
-                className={`inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-600 to-blue-600 text-white text-sm font-bold rounded-full shadow-lg transition-all duration-1000 ${
+                className={`inline-flex self-start items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-600 to-blue-600 text-white text-sm font-bold rounded-full shadow-lg transition-all duration-1000 ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-4"
@@ -93,7 +93,7 @@ const Home: React.FC = () => {
                     : "opacity-0 translate-y-4"
                 }`}
               >
-                <h1 className="text-2xl sm:text-3xl xl:text-5xl font-black text-white leading-tight font-lilita-one">
+                <h1 className="text-2xl sm:text-3xl 2xl:text-5xl font-black text-white leading-tight font-lilita-one">
                   Expert Consulting for{" "}
                   <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
                     UK Business Registration
@@ -131,7 +131,7 @@ const Home: React.FC = () => {
 
               {/* Trust Indicators - Hidden on small screens to save space */}
               <div
-                className={`hidden md:block pt-4 lg:pt-6 transition-all duration-1000 delay-600 ${
+                className={`hidden sm:block pt-4 lg:pt-6 transition-all duration-1000 delay-600 ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-4"
@@ -141,7 +141,7 @@ const Home: React.FC = () => {
                   {trustIndicators.map((item, index) => (
                     <div
                       key={index}
-                      className="flex items-center gap-2 text-white font-nunito"
+                      className="hidden md:flex items-center gap-2 text-white font-nunito"
                     >
                       <CheckCircle className="h-4 w-4 lg:h-5 lg:w-5 text-cyan-400 flex-shrink-0" />
                       <span className="text-xs lg:text-sm font-semibold">
@@ -154,7 +154,7 @@ const Home: React.FC = () => {
 
               {/* Stats Section */}
               <div
-                className={`hidden xl:grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 pt-4 md:pt-6 transition-all duration-1000 delay-800 ${
+                className={`hidden sm:grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 pt-4 md:pt-6 transition-all duration-1000 delay-800 ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-4"
