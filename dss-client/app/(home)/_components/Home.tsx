@@ -93,7 +93,7 @@ const Home: React.FC = () => {
                     : "opacity-0 translate-y-4"
                 }`}
               >
-                <h1 className="text-2xl sm:text-3xl 2xl:text-5xl font-black text-white leading-tight font-lilita-one">
+                <h1 className="text-2xl sm:text-3xl 2xl:text-5xl font-black text-white leading-normal sm:leading-tight font-lilita-one">
                   Expert Consulting for{" "}
                   <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
                     UK Business Registration
@@ -131,7 +131,7 @@ const Home: React.FC = () => {
 
               {/* Trust Indicators - Hidden on small screens to save space */}
               <div
-                className={`hidden sm:block pt-4 lg:pt-6 transition-all duration-1000 delay-600 ${
+                className={`block pt-4 lg:pt-6 transition-all duration-1000 delay-600 ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-4"
