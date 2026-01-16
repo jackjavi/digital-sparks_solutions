@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { ArrowRight, Sparkles, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, Sparkles } from "lucide-react";
 
 const Home: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -12,7 +12,7 @@ const Home: React.FC = () => {
 
   const handleScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
+    href: string,
   ) => {
     e.preventDefault();
     const targetId = href.substring(1);
@@ -39,157 +39,154 @@ const Home: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative flex items-center justify-center min-h-screen pt-32 lg:pt-36 pb-16 md:py-24 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-cyan-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950"
+      className="relative min-h-screen overflow-hidden pt-26 pb-4 bg-white dark:bg-slate-900"
     >
-      {/* Background Pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.03] dark:opacity-[0.08]"
-        style={{
-          backgroundImage: `radial-gradient(circle, rgba(34, 211, 238, 0.3) 1px, transparent 1px)`,
-          backgroundSize: "40px 40px",
-        }}
-      />
+      {/* Hero Section with Cover Image - Constrained like PostHeader */}
+      <div className="relative h-[85vh] overflow-hidden">
+        {/* Background container with max-width constraint */}
+        <div className="absolute inset-0 flex items-center justify-center  ">
+          <div className="relative w-full max-w-7xl h-full mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Cover Image */}
+            <div
+              className="absolute inset-0 bg-cover bg-center rounded-none md:rounded-2xl mx-4 sm:mx-6 lg:mx-8"
+              style={{
+                backgroundImage:
+                  "url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070')",
+              }}
+            />
 
-      {/* Background Image Container with max-w-7xl and padding */}
-      <div className="absolute inset-0 z-0 max-w-7xl mx-auto flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-24 md:pt-28 pb-4 md:pb-8">
-        <div className="relative w-full  h-full">
-          {/* Background Image */}
-          <div
-            className="absolute inset-0 rounded-3xl  overflow-hidden shadow-2xl"
-            style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070')",
-              backgroundSize: "cover",
-              backgroundPosition: "center center",
-              backgroundRepeat: "no-repeat",
-            }}
-          >
-            {/* Very Light Overlay for Subtle Effect */}
-            <div className="absolute inset-0 bg-white dark:bg-slate-900 opacity-15"></div>
+            {/* Gradient Overlay - Dark to transparent for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/40 rounded-none md:rounded-2xl mx-4 sm:mx-6 lg:mx-8" />
+
+            {/* Animated Pattern Overlay */}
+            <div
+              className="absolute inset-0 opacity-10 rounded-none md:rounded-2xl"
+              style={{
+                backgroundImage: `radial-gradient(circle, rgba(34, 211, 238, 0.3) 1px, transparent 1px)`,
+                backgroundSize: "40px 40px",
+              }}
+            />
           </div>
         </div>
-      </div>
 
-      {/* Accent Gradient Elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500/10 dark:bg-cyan-500/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 dark:bg-blue-500/5 rounded-full blur-3xl" />
+        {/* Content Overlay */}
+        <div className="absolute inset-0 flex items-end">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-10 md:pb-12 w-full">
+            <div className="max-w-5xl space-y-6 md:space-y-8 px-4 sm:px-6 lg:px-8">
+              {/* Badge */}
+              <div
+                className={`inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-600 to-blue-600 text-white text-sm font-bold rounded-full shadow-lg transition-all duration-1000 ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-4"
+                }`}
+              >
+                <Sparkles className="h-4 w-4 animate-pulse" />
+                Your UK Success Partner
+              </div>
 
-      {/* Main Content Container */}
-      <div className="relative z-10 max-w-7xl mx-auto  px-4 sm:px-6 lg:px-8 w-full">
-        {/* Badge */}
-        {/*<div className="max-w-5xl bg-transparent mx-auto sm:flex sm:flex-col sm:items-start sm:justify-center pb-12">
-          <div
-            className={`inline-flex gap-2 mx-4 sm:mx-8 px-2 md:px-4 sm:max-w-[80vw] lg:max-w-[70vw] 2xl:max-w-[50vw] py-2 md:py-2 bg-white/30 dark:bg-slate-900/30 transition-all duration-1000 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 -translate-y-4"
-            }`}
-          >
-            <Sparkles className="h-4 w-4 text-cyan-600 dark:text-cyan-400" />
-            <span className="text-cyan-700 dark:text-cyan-300 text-xs  md:text-sm font-semibold tracking-tight font-nunito uppercase">
-              Your UK Success Partner
-            </span>
-          </div>
-        </div> */}
+              {/* Main Heading */}
+              <div
+                className={`transition-all duration-1000 delay-200 ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-4"
+                }`}
+              >
+                <h1 className="text-2xl sm:text-4xl xl:text-5xl font-black text-white leading-tight font-lilita-one">
+                  Expert Consulting for{" "}
+                  <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                    UK Business Registration
+                  </span>
+                  , Healthcare CQC Compliance, Job Sponsorship & Career Growth
+                </h1>
+              </div>
 
-        <div className=" max-w-5xl mx-auto sm:flex sm:flex-col sm:items-center sm:justify-center space-y-12 sm:space-y-16">
-          {/* Main Heading */}
-          <div
-            className={`transition-all duration-1000 delay-200 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 -translate-y-4"
-            }`}
-          >
-            <div className="inline-block sm:w-[80vw] lg:w-[70vw] 2xl:w-[50vw] mx-4 bg-white dark:bg-slate-900 opacity-75  shadow-2xl px-2 py-2">
-              <h1 className="text-start text-2xl sm:text-3xl lg:text-4xl 2xl:text-6xl font-bold text-slate-900 dark:text-white leading-tight font-lilita-one">
-                Navigate UK business with <br className="hidden sm:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-blue-600 to-cyan-600 dark:from-cyan-400 dark:via-blue-400 dark:to-cyan-400">
-                  expert consulting
-                </span>
-                {/*<span>expert consulting</span>*/}
-              </h1>
-            </div>
-          </div>
+              {/* CTA Buttons */}
+              <div
+                className={`flex flex-col sm:flex-row gap-3 sm:gap-4 pt-3 md:pt-4 transition-all duration-1000 delay-400 ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-4"
+                }`}
+              >
+                <a
+                  href="/services/book-a-consultation"
+                  className="group relative inline-flex items-center justify-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full overflow-hidden transition-all duration-300 shadow-2xl shadow-cyan-500/50 hover:shadow-cyan-500/70 hover:scale-105 font-nunito font-bold text-sm md:text-base"
+                >
+                  <span className="relative z-10">Book a Consultation</span>
+                  <ArrowRight className="h-4 w-4 md:h-5 md:w-5 relative z-10 group-hover:translate-x-1 transition-transform" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </a>
 
-          {/* Description */}
-          <div
-            className={`transition-all duration-1000 delay-400 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 -translate-y-4"
-            }`}
-          >
-            <div className="inline-block sm:w-[80vw] lg:w-[70vw] 2xl:w-[50vw] mx-4 bg-white  dark:bg-slate-900 opacity-75  shadow-xl px-2 py-2">
-              {/* <p className="text-start text-sm sm:text-lg lg:text-xl 2xl:text-2xl text-slate-700 dark:text-gray-300 leading-relaxed font-nunito">
-                From business registration to CQC compliance, job sponsorship,
-                and strategic growth. We deliver tailored solutions for your UK
-                business success.
-              </p> */}
-              <p className="text-xs sm:text-md lg:text-lg 2xl:text-xl text-slate-900 dark:text-white leading-relaxed font-nunito">
-                <span className="sm:hidden">
-                  Tailored solutions for UK business registration, compliance,
-                  sponsorship, and growth.
-                </span>
-                <span className="hidden sm:inline">
-                  From business registration to CQC compliance, job sponsorship,
-                  and strategic growth. We deliver tailored solutions for your
-                  UK business success.
-                </span>
-              </p>
-            </div>
-          </div>
+                <a
+                  href="#services"
+                  onClick={(e) => handleScroll(e, "#services")}
+                  className="inline-flex items-center justify-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-white/20 backdrop-blur-md text-white rounded-full border-2 border-white/30 hover:bg-white/30 hover:border-white/50 transition-all duration-300 font-nunito font-bold text-sm md:text-base group shadow-xl"
+                >
+                  View Our Services
+                  <ArrowRight className="h-4 w-4 md:h-5 md:w-5 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </div>
 
-          {/* CTA Buttons */}
-          <div
-            className={`flex flex-col md:flex-row gap-10 md:gap-20 sm:w-[80vw] lg:w-[70vw] 2xl:w-[50vw] mx-4 tracking-tighter text-sm font-bold uppercase justify-start items-center pt-4 transition-all duration-1000 delay-600 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 -translate-y-4"
-            }`}
-          >
-            <a
-              href="/services/book-a-consultation"
-              className="group relative inline-flex items-center justify-center gap-2 px-6 2xl:px-6 py-2 2xl:py-4 bg-gradient-to-r from-cyan-500 to-blue-600 opacity-75 text-white rounded-full overflow-hidden transition-all duration-300 shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 hover:scale-105 font-nunito w-full sm:w-auto"
-            >
-              <span className="relative z-10">Book a Consultation</span>
-              <ArrowRight className="h-5 w-5 relative z-10 group-hover:translate-x-1 transition-transform" />
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </a>
+              {/* Trust Indicators - Hidden on small screens to save space */}
+              <div
+                className={`hidden md:block pt-4 lg:pt-6 transition-all duration-1000 delay-600 ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-4"
+                }`}
+              >
+                <div className="flex flex-wrap gap-4 lg:gap-6 items-center border-t border-white/20 pt-4 lg:pt-6">
+                  {trustIndicators.map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center gap-2 text-white font-nunito"
+                    >
+                      <CheckCircle className="h-4 w-4 lg:h-5 lg:w-5 text-cyan-400 flex-shrink-0" />
+                      <span className="text-sm lg:text-base font-semibold">
+                        {item.label}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
-            <a
-              href="#services"
-              onClick={(e) => handleScroll(e, "#services")}
-              className="inline-flex items-center justify-center gap-2 px-6 2xl:px-6 py-2 2xl:py-4 bg-white dark:bg-slate-900 opacity-75 text-slate-900 dark:text-white rounded-full hover:bg-white dark:hover:bg-slate-800 hover:border-cyan-500 dark:hover:border-cyan-500 transition-all duration-300 font-nunito group w-full sm:w-auto shadow-lg"
-            >
-              View Our Services
-              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-          </div>
-
-          {/* Trust Indicators */}
-          <div
-            className={`pt-8 transition-all duration-1000 delay-800 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 -translate-y-4"
-            }`}
-          >
-            <div className="hidden md:inline-block sm:w-[80vw] lg:w-[70vw] 2xl:w-[50vw] mx-4 bg-white dark:bg-slate-900 opacity-75 shadow-lg px-2 py-2 border-t-2 border-slate-200/75 dark:border-slate-700/75">
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-12 justify-start items-center flex-wrap">
-                {trustIndicators.map((item, index) => (
+              {/* Stats Section */}
+              <div
+                className={`grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 pt-4 md:pt-6 transition-all duration-1000 delay-800 ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-4"
+                }`}
+              >
+                {[
+                  { number: "500+", label: "Successful Clients" },
+                  { number: "1000+", label: "Projects Completed" },
+                  { number: "15+", label: "Industries Served" },
+                  { number: "95%", label: "Success Rate" },
+                ].map((stat, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-2 text-slate-800 dark:text-gray-200 font-nunito"
+                    className="text-center p-2.5 md:p-3 lg:p-4 bg-white/10 backdrop-blur-md rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300"
                   >
-                    <CheckCircle className="h-5 w-5 text-cyan-600 dark:text-cyan-400 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm font-small">
-                      {item.label}
-                    </span>
+                    <div className="text-xl md:text-2xl lg:text-3xl font-black text-cyan-400 font-lilita-one">
+                      {stat.number}
+                    </div>
+                    <div className="text-xs md:text-sm text-white font-nunito mt-0.5 md:mt-1">
+                      {stat.label}
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
+            <div className="w-1 h-3 bg-white/70 rounded-full animate-pulse" />
           </div>
         </div>
       </div>
@@ -208,13 +205,6 @@ const Home: React.FC = () => {
         .animate-gradient {
           background-size: 200% auto;
           animation: gradient 3s ease infinite;
-        }
-
-        .bg-gradient-radial {
-          background: radial-gradient(
-            circle at center,
-            var(--tw-gradient-stops)
-          );
         }
       `}</style>
     </section>

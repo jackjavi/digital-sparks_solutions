@@ -3,9 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { Inter } from "next/font/google";
-import { Lilita_One } from "next/font/google";
-import { Nunito } from "next/font/google";
+import { Inter, Playfair_Display, Lilita_One, Nunito } from "next/font/google";
 import { ThemeProvider } from "./components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -33,6 +31,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const playfair_display = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-playfair-display",
+});
+
 export const metadata: Metadata = {
   title: "Digital Sparks Solutions",
   description:
@@ -47,7 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={` ${inter.className} ${lilitaOne.variable} ${nunito.variable} ${geistSans.variable} ${geistMono.variable} font-inter antialiased bg-slate-950`}
+        className={` ${inter.className} ${lilitaOne.variable} ${nunito.variable} ${playfair_display.variable} ${geistSans.variable} ${geistMono.variable} font-inter antialiased bg-slate-950`}
       >
         <ThemeProvider
           attribute="data-theme"
