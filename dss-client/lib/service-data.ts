@@ -35,6 +35,8 @@ export interface ServiceData {
   };
 }
 
+const BASE_URL = "https://www.digitalsparkssolutions.com";
+
 export const servicesData: ServiceData[] = [
   {
     slug: "healthcare-consultancy",
@@ -53,8 +55,7 @@ export const servicesData: ServiceData[] = [
         price: 135,
         currency: "USD",
         planId: "plan_QilQlPvO1MY6Q",
-        downloadLink:
-          "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/The_Complete_Guide_to_CQC_Registration_obxmp4.odt",
+        downloadLink: `${BASE_URL}/api/ebooks/Complete-Guide-to-CQC-Registration.pdf`,
         featured: true,
         isConsultation: false,
       },
@@ -66,8 +67,7 @@ export const servicesData: ServiceData[] = [
         price: 200,
         currency: "USD",
         planId: "plan_Cjku0NApzDhzM",
-        downloadLink:
-          "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/Win_Clients_Land_Contracts_-The_Human_Blueprint_for_Your_UK_Care_Agency_byrosw.odt",
+        downloadLink: `${BASE_URL}/api/ebooks/Win-Clients-&-Land-Contracts-The-Human-Blueprint-for-Your-UK-Care-Agency.pdf`,
         featured: true,
         isConsultation: false,
       },
@@ -79,8 +79,7 @@ export const servicesData: ServiceData[] = [
         price: 80,
         currency: "USD",
         planId: "plan_3mJh7D44s7t5S",
-        downloadLink:
-          "https://res.cloudinary.com/popit/raw/upload/v1762831152/DSS-EBOOKS/Start_Your_Care_Agency_in_the_UK_hkilur.odt",
+        downloadLink: `${BASE_URL}/api/ebooks/Start-Your-Care-Agency-in-the-UK.pdf`,
         featured: true,
         isConsultation: false,
       },
@@ -92,8 +91,7 @@ export const servicesData: ServiceData[] = [
         price: 70,
         currency: "USD",
         planId: "plan_VMBEBmL6ED7X1",
-        downloadLink:
-          "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/Win_Clients_Land_Contracts_-The_Human_Blueprint_for_Your_UK_Care_Agency_byrosw.odt",
+        downloadLink: `${BASE_URL}/api/ebooks/Start-Your-Non-CQC-Care-Agency-in-UK:A-step-by-step-Blueprint.pdf`,
         featured: true,
         isConsultation: false,
       },
@@ -207,8 +205,7 @@ export const servicesData: ServiceData[] = [
         price: 40,
         currency: "USD",
         planId: "plan_wZ2R34c2bpYCB",
-        downloadLink:
-          "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/The_Human_Guide_to_Moving_to_the_UK_as_an_International_Student_lsrpv0.odt",
+        downloadLink: `${BASE_URL}/api/ebooks/The-Human-Guide-to-Moving-to-the-UK-as-an-International-Student.pdf`,
         featured: true,
         isConsultation: false,
       },
@@ -311,8 +308,7 @@ export const servicesData: ServiceData[] = [
         price: 25,
         currency: "USD",
         planId: "plan_CokQuD4loNWSS",
-        downloadLink:
-          "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/How_to_Find_UK_Companies_That_Can_Sponsor_Skilled_Workers_dzhzsb.odt",
+        downloadLink: `${BASE_URL}/api/ebooks/How-to-Find-UK-Companies-That-Can-Sponsor-Skilled-Workers.pdf`,
         featured: true,
         isConsultation: false,
       },
@@ -324,8 +320,7 @@ export const servicesData: ServiceData[] = [
         price: 35,
         currency: "USD",
         planId: "plan_srgDt4d7KHsZ3",
-        downloadLink:
-          "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/How_to_Find_UK_Companies_That_Can_Sponsor_Skilled_Workers_dzhzsb.odt",
+        downloadLink: `${BASE_URL}/api/ebooks/Tailored-CV-Service-to-Meet-UK-Employers'-Standards.pdf`,
         featured: true,
         isConsultation: false,
       },
@@ -337,8 +332,7 @@ export const servicesData: ServiceData[] = [
         price: 1.5,
         currency: "USD",
         planId: "plan_UaUV6tSssev8I",
-        downloadLink:
-          "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/How_to_Find_UK_Companies_That_Can_Sponsor_Skilled_Workers_dzhzsb.odt",
+        downloadLink: `${BASE_URL}/api/ebooks/Worker_and_Temporary_Worker.csv`,
         featured: true,
         isConsultation: false,
       },
@@ -442,8 +436,7 @@ export const servicesData: ServiceData[] = [
         price: 35,
         currency: "USD",
         planId: "plan_umqjk0mAG3c8o",
-        downloadLink:
-          "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/How_to_Find_UK_Companies_That_Can_Sponsor_Skilled_Workers_dzhzsb.odt",
+        downloadLink: `${BASE_URL}/api/ebooks/Social-Media-Management.pdf`,
         featured: true,
         isConsultation: false,
       },
@@ -466,10 +459,8 @@ export const servicesData: ServiceData[] = [
         price: 135,
         currency: "USD",
         planId: "plan_Y0GWEMpffwDz1",
-        downloadLink:
-          "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/How_to_Find_UK_Companies_That_Can_Sponsor_Skilled_Workers_dzhzsb.odt",
         featured: true,
-        isConsultation: false,
+        isConsultation: true,
       },
     ],
     features: [
@@ -571,8 +562,7 @@ export const servicesData: ServiceData[] = [
         price: 10,
         currency: "USD",
         planId: "plan_Yrm3hbvImffHH",
-        downloadLink:
-          "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/How_to_Find_UK_Companies_That_Can_Sponsor_Skilled_Workers_dzhzsb.odt",
+        downloadLink: `${BASE_URL}/api/ebooks/How-to-Register-Your-Business-in-the-UK.pdf`,
         featured: true,
         isConsultation: false,
       },
@@ -676,8 +666,7 @@ export const servicesData: ServiceData[] = [
         price: 80,
         currency: "USD",
         planId: "plan_8CUaOB7ziZkt2",
-        downloadLink:
-          "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/Scale_Your_Cleaning_Business_in_the_UK_-_A_Real_Human_Blueprint_t5bwfp.odt",
+        downloadLink: `${BASE_URL}/api/ebooks/Scale-Your-Cleaning-Business-in-the-UK.pdf`,
         featured: true,
         isConsultation: false,
       },
@@ -689,8 +678,7 @@ export const servicesData: ServiceData[] = [
         price: 65,
         currency: "USD",
         planId: "plan_3FJqmgzoocC4E",
-        downloadLink:
-          "https://res.cloudinary.com/popit/raw/upload/v1762831153/DSS-EBOOKS/How_to_Find_UK_Companies_That_Can_Sponsor_Skilled_Workers_dzhzsb.odt",
+        downloadLink: `${BASE_URL}/api/ebooks/Start-Your-Successful-Cleaning-Company.pdf`,
         featured: true,
         isConsultation: false,
       },
@@ -902,6 +890,6 @@ export function getProductByPlanId(planId: string): Product | undefined {
 
 export function getServiceByPlanId(planId: string): ServiceData | undefined {
   return servicesData.find((service) =>
-    service.products.some((p) => p.planId === planId)
+    service.products.some((p) => p.planId === planId),
   );
 }

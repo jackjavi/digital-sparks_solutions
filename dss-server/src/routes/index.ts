@@ -5,6 +5,7 @@ import { Application } from "express";
 import paymentRoutes from "./paymentRoutes";
 import contactRoutes from "./contactRoutes";
 import whopRoutes from "./whop/whopRoutes";
+import ebookRoutes from "./ebook/ebookRoutes";
 
 const appRoutes = (app: Application) => {
   // Middleware
@@ -16,6 +17,7 @@ const appRoutes = (app: Application) => {
   app.use("/api/payment", paymentRoutes);
   app.use("/api/contact", contactRoutes);
   app.use("/api/whop", whopRoutes);
+  app.use("/api/ebooks", ebookRoutes);
 
   // Error Handling Middleware
   app.use(errorMiddleware);

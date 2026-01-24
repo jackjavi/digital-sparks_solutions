@@ -40,6 +40,8 @@ const start = async () => {
       console.log(`   POST /api/contact/submit`);
       console.log(`   POST /api/whop/payment-succeeded`);
       console.log(`   GET  /api/whop/health\n`);
+      console.log(`   GET  /api/ebooks/:filename`);
+      console.log(`   GET  /api/ebooks\n`);
     });
   } catch (error) {
     console.error("\n❌ Failed to start application:", error);
@@ -49,7 +51,7 @@ const start = async () => {
       process.exit(1);
     } else {
       console.warn(
-        "\n⚠️  Starting server without database connection (DB_REQUIRED=false)"
+        "\n⚠️  Starting server without database connection (DB_REQUIRED=false)",
       );
 
       // Initialize app routes even without DB
