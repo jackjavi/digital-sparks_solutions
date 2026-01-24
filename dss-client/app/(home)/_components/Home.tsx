@@ -98,7 +98,7 @@ const Home: React.FC = () => {
                   <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
                     UK Business Registration
                   </span>
-                  , Healthcare CQC Compliance, Job Sponsorship & Career Growth
+                  , Healthcare, CQC Compliance, Job Sponsorship & Career Growth
                 </h1>
               </div>
 
