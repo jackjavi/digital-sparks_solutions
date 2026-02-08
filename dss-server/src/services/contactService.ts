@@ -44,7 +44,6 @@ Contact Details:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 👤 Name: ${fullName}
 📧 Email: ${email}
-📱 Phone: ${phone}
 🎯 Service Interest: ${service}
 📅 Submitted: ${timestamp}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -121,7 +120,7 @@ ${config.dssAdminEmail}
         `Failed to process contact form: ${
           error instanceof Error ? error.message : "Unknown error"
         }`,
-        500
+        500,
       );
     }
   }
