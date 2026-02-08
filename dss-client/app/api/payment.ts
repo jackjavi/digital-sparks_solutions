@@ -10,6 +10,17 @@ interface PaymentConfirmationData {
   downloadLink?: string;
 }
 
+export interface WhopPaymentConfirmationData {
+  userEmail: string;
+  userName?: string;
+  paymentId: string;
+  productTitle?: string;
+  amount?: string;
+  currency?: string;
+  membershipStatus?: string;
+  downloadLink?: string;
+}
+
 interface PaymentConfirmationResponse {
   success: boolean;
   message: string;
@@ -84,7 +95,7 @@ export const paymentAPI = {
    * Send payment confirmation emails
    */
   confirmPayment: async (
-    data: PaymentConfirmationData
+    data: PaymentConfirmationData,
   ): Promise<PaymentConfirmationResponse> => {
     try {
       const response = await axios.post(
@@ -94,7 +105,34 @@ export const paymentAPI = {
           headers: {
             "Content-Type": "application/json",
           },
-        }
+        },
+      );
+      return response.data;
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        const errorMessage =
+          error.response?.data?.error?.message || "Failed to send confirmation";
+        throw new Error(errorMessage);
+      }
+      throw new Error("An unexpected error occurred");
+    }
+  },
+
+  /**
+   * Send Whop payment confirmation emails
+   */
+  confirmPaymentWhop: async (
+    data: WhopPaymentConfirmationData,
+  ): Promise<PaymentConfirmationResponse> => {
+    try {
+      const response = await axios.post(
+        `${API_BASE_URL}/api/payment/whop/confirm`,
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
       );
       return response.data;
     } catch (error) {
@@ -111,7 +149,7 @@ export const paymentAPI = {
    * Retrieve and verify Whop payment
    */
   retrieveWhopPayment: async (
-    receiptId: string
+    receiptId: string,
   ): Promise<WhopPaymentResponse> => {
     try {
       const response = await axios.post(
@@ -121,7 +159,7 @@ export const paymentAPI = {
           headers: {
             "Content-Type": "application/json",
           },
-        }
+        },
       );
       return response.data;
     } catch (error) {

@@ -35,7 +35,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
   const handleComplete = async (
     completedPlanId: string,
-    receiptId: string | undefined
+    receiptId: string | undefined,
   ) => {
     console.log("[CHECKOUT] Payment completed:", {
       completedPlanId,
@@ -55,7 +55,6 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({
     try {
       const response = await paymentAPI.retrieveWhopPayment(receiptId);
 
-      console.log("[CHECKOUT] Payment verified:", response);
       setPaymentData(response.data);
 
       // Extract the plan ID from the payment data
@@ -76,8 +75,30 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({
       setPurchasedProduct({
         name: product.name,
         isConsultation: product.isConsultation || false,
-        downloadLink: product.downloadLink,
+        downloadLink: product.downloadLink || undefined,
       });
+
+      // Send confirmation emails via new endpoint
+      try {
+        await paymentAPI.confirmPaymentWhop({
+          userEmail: response.data.user?.email || "",
+          userName: response.data.user?.name || undefined,
+          paymentId: response.data.id,
+          productTitle: response.data.product?.title || product.name,
+          amount: response.data.total,
+          currency: response.data.currency || undefined,
+          membershipStatus: response.data.membership?.status || undefined,
+          downloadLink: product.downloadLink || undefined,
+        });
+
+        // console.log("[CHECKOUT] Confirmation emails sent successfully");
+      } catch (emailError) {
+        console.error(
+          "[CHECKOUT] Failed to send confirmation emails:",
+          emailError,
+        );
+        // Don't fail the entire process if emails fail
+      }
 
       setPaymentStatus("success");
 
@@ -87,7 +108,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({
       console.error("[CHECKOUT] Payment verification failed:", error);
       setPaymentStatus("error");
       setErrorMessage(
-        error instanceof Error ? error.message : "Payment verification failed"
+        error instanceof Error ? error.message : "Payment verification failed",
       );
       setIsProcessing(false);
     }
