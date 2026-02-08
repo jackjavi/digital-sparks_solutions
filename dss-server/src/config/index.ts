@@ -14,6 +14,7 @@ const requiredEnvVars = [
   "DSS_ADMIN_EMAIL",
   "MONGO_URI",
   "WHOP_API_KEY",
+  "EBOOKS_PASSWORD",
 ];
 
 requiredEnvVars.forEach((key) => {
@@ -35,6 +36,7 @@ interface Config {
   dssAdminEmail: string;
   mongoUri: string;
   whopApiKey: string;
+  ebooksPassword: string;
 }
 
 const config: Config = {
@@ -50,6 +52,7 @@ const config: Config = {
   dssAdminEmail: process.env.DSS_ADMIN_EMAIL as string,
   mongoUri: process.env.MONGO_URI as string,
   whopApiKey: process.env.WHOP_API_KEY as string,
+  ebooksPassword: process.env.EBOOKS_PASSWORD as string,
 };
 
 export default config;

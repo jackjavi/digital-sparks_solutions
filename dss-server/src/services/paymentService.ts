@@ -54,14 +54,14 @@ export default class PaymentService {
 
             ebookAttached = true;
             console.log(
-              `E-book downloaded successfully: ${downloadedFile.filename}`
+              `E-book downloaded successfully: ${downloadedFile.filename}`,
             );
           }
         } catch (downloadError) {
           // Log error but don't fail the entire email send
           console.error(
             "Failed to download e-book, proceeding without attachment:",
-            downloadError
+            downloadError,
           );
         }
       }
@@ -88,7 +88,8 @@ Your complimentary e-book has been attached to this email. You can download it d
 
 What's Next?
 - Download your e-book from the attachment above
-- Save it to your device for easy access`
+- Save it to your device for easy access
+- Use the password "${config.ebooksPassword}" to unlock the e-book if prompted.`
     : `What's Next?
 - A copy of your purchase confirmation is saved in your account`
 }
@@ -158,7 +159,7 @@ Digital Sparks Solutions System
         `Failed to send confirmation emails: ${
           error instanceof Error ? error.message : "Unknown error"
         }`,
-        500
+        500,
       );
     }
   }
