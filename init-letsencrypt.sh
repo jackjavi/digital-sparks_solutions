@@ -1,9 +1,9 @@
 #!/bin/bash
 
-domains=(digitalsparkssolutions.com www.digitalsparkssolutions.com blog-api.elitebrainsconsulting.com www.blog-api.elitebrainsconsulting.com)
+domains=(digitalsparkssolutions.com www.digitalsparkssolutions.com)
 rsa_key_size=4096
 data_path="./ssl-data/certbot"
-email="jackmtembete@gmail.com"
+email="info@digitalsparkssolutions.com"
 staging=0 # Set to 1 if you're testing your setup to avoid rate limits
 
 if [ -d "$data_path" ]; then
