@@ -1,6 +1,6 @@
 #!/bin/bash
 
-domains=(digitalsparkssolutions.com www.digitalsparkssolutions.com)
+domains=(digitalsparkssolutions.com www.digitalsparkssolutions.com blog-api.elitebrainsconsulting.com www.blog-api.elitebrainsconsulting.com)
 rsa_key_size=4096
 data_path="./ssl-data/certbot"
 email="info@digitalsparkssolutions.com"
